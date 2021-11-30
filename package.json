@@ -9,7 +9,7 @@
     "css:build": "tailwindcss --output ./app/styles/tailwind.css --config ./tailwind.config.js",
     "dev": "node -r dotenv/config node_modules/.bin/remix dev",
     "postinstall": "remix setup node",
-    "start": "remix-serve build"
+    "start": "node -r dotenv/config node_modules/.bin/remix-serve build"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^1.2.36",
