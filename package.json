@@ -1,0 +1,48 @@
+{
+  "private": true,
+  "name": "thomas-website",
+  "description": "Thomas Ledoux Remix Website",
+  "license": "ISC",
+  "scripts": {
+    "build": "npm run css:build && remix build",
+    "watch:css": "postcss styles --base styles --dir app/styles -w",
+    "css:build": "tailwindcss --output ./app/styles/tailwind.css --config ./tailwind.config.js",
+    "dev": "node -r dotenv/config node_modules/.bin/remix dev",
+    "postinstall": "remix setup node",
+    "start": "remix-serve build"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.36",
+    "@fortawesome/free-brands-svg-icons": "^5.15.4",
+    "@fortawesome/free-regular-svg-icons": "^5.15.4",
+    "@fortawesome/free-solid-svg-icons": "^5.15.4",
+    "@fortawesome/react-fontawesome": "^0.1.16",
+    "@remix-run/react": "^1.0.5",
+    "@remix-run/serve": "^1.0.5",
+    "@supabase/supabase-js": "^1.28.2",
+    "aos": "^2.3.4",
+    "dotenv": "^10.0.0",
+    "react": "^17.0.2",
+    "react-dom": "^17.0.2",
+    "remix": "^1.0.5",
+    "uuid": "^8.3.2"
+  },
+  "devDependencies": {
+    "@remix-run/dev": "^1.0.5",
+    "@types/aos": "^3.0.4",
+    "@types/react": "^17.0.24",
+    "@types/react-dom": "^17.0.9",
+    "@types/uuid": "^8.3.3",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.1",
+    "postcss-cli": "^9.0.2",
+    "tailwindcss": "^2.2.19",
+    "typescript": "^4.1.2"
+  },
+  "engines": {
+    "node": ">=14"
+  },
+  "sideEffects": false,
+  "version": "1.0.0",
+  "author": ""
+}
