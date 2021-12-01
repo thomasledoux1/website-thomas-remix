@@ -269,3 +269,9 @@ export default function Index() {
     </>
   );
 }
+
+export function headers() {
+  return {
+    'Cache-Control': 'max-age=0, s-max-age=86400, stale-while-revalidate=86400',
+  };
+}
