@@ -1,6 +1,6 @@
 type TimelineItemProps = {
   index: number;
-  children: JSX.Element;
+  children: JSX.Element | JSX.Element[];
 };
 
 export default function TimelineItem({ index, children }: TimelineItemProps) {

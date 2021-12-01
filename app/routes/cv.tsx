@@ -94,7 +94,7 @@ const CV = () => {
         <div className="col-span-1 mx-6 mt-6 sm:mt-0 sm:mx-0 sm:col-span-2">
           <h2 className="text-xl lg:text-2xl mb-4 font-bold">My timeline</h2>
           <div className="flex w-full flex-col timeline-container relative after:bg-lightpurple dark:after:bg-darkgrey after:absolute after:w-1 after:h-full">
-            <TimelineItem index={0} url="https://reference.be">
+            <TimelineItem index={0}>
               <time className="text-xs text-grey">October 2018 - now</time>
               <p>
                 Frontend Developer at{' '}
@@ -109,7 +109,7 @@ const CV = () => {
                 , Ghent
               </p>
             </TimelineItem>
-            <TimelineItem index={1} url="https://happsdevelopment.com">
+            <TimelineItem index={1}>
               <time className="text-xs text-grey">
                 September 2017 - October 2018
               </time>
@@ -126,7 +126,7 @@ const CV = () => {
                 , Ghent
               </p>
             </TimelineItem>
-            <TimelineItem index={2} url="https://getrialto.com">
+            <TimelineItem index={2}>
               <time className="text-xs text-grey">
                 February 2017 - June 2017
               </time>
@@ -143,7 +143,7 @@ const CV = () => {
                 , Ghent
               </p>
             </TimelineItem>
-            <TimelineItem index={3} url="https://hogent.be">
+            <TimelineItem index={3}>
               <time className="text-xs text-grey">
                 September 2014 - June 2017
               </time>
@@ -159,7 +159,7 @@ const CV = () => {
                 </a>
               </p>
             </TimelineItem>
-            <TimelineItem index={4} url="https://telenet.be">
+            <TimelineItem index={4}>
               <time className="text-xs text-grey">May 2012 - August 2014</time>
               <p>
                 Support Engineer at{' '}
@@ -180,5 +180,11 @@ const CV = () => {
     </section>
   );
 };
+
+export function headers() {
+  return {
+    'Cache-Control': 'max-age=0, s-max-age=86400, stale-while-revalidate=86400',
+  };
+}
 
 export default CV;
