@@ -37,7 +37,7 @@ export default function Index() {
           </div>
         </div>
         <svg
-          className="absolute bottom-0 left-0 sm:-bottom-20 text-purple dark:text-darkgrey fill-current"
+          className="-z-1 absolute bottom-0 left-0 sm:-bottom-20 text-purple dark:text-darkgrey fill-current"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1440 320"
         >
