@@ -12,7 +12,7 @@ export default function Index() {
     <>
       <section
         id="hero"
-        className="relative min-h-screen-without-nav items-center content-center flex pb-16 dark:bg-lightgrey text-text"
+        className="relative min-h-screen-without-nav items-center content-center flex dark:bg-lightgrey text-text"
       >
         <div className="container gap-8 md:gap-0 mx-6 sm:mx-auto grid md:grid-cols-2 items-center content-center justify-items-center">
           <h1 className="text-4xl font-bold md:text-6xl flex flex-col items-center md:items-start">
@@ -33,6 +33,8 @@ export default function Index() {
               alt="Profile picture"
               src="/me.jpeg"
               placeholder="blur"
+              width={640}
+              height={640}
             />
           </div>
         </div>

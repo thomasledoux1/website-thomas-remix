@@ -56,6 +56,8 @@ const CV = () => {
               alt="Profile picture"
               src="/me.jpeg"
               placeholder="blur"
+              width={640}
+              height={640}
             />
             <p>Hello, is it me you&apos;re looking for?</p>
           </div>
