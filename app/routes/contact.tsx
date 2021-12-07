@@ -32,8 +32,8 @@ const Contact = () => {
           <img
             alt="Illustration of man sitting on a block"
             src="/contact.svg"
-            width={129}
-            height={150}
+            width={645}
+            height={750}
           />
         </div>
         <div className="p-6 flex justify-center flex-col">
