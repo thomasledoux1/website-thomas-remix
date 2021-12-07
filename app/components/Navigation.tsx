@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 // import { useTheme } from 'next-themes';
 import useWindowSize from '../../hooks/useWindowSize';
 import useIsMounted from '../../hooks/useIsMounted';
-import { Link } from '@remix-run/react';
+import { Link, NavLink } from '@remix-run/react';
 
 type NavigationProps = {
   toggleDarkTheme: () => void;
@@ -23,51 +23,40 @@ const Navigation = ({ toggleDarkTheme, isDarkTheme }: NavigationProps) => {
     setMobileNavOpen(!mobileNavOpen);
   };
 
-  const linkClicked = (event: React.SyntheticEvent) => {
-    if ((event.currentTarget as HTMLAnchorElement).href.indexOf('cv') > -1) {
-      document.querySelectorAll('nav li a').forEach(navEl => {
-        navEl.classList.remove('active');
-      });
-    }
-    if (width! <= 768) {
-      toggleMobileNavigation();
-    }
-  };
-
   const renderNavigationItems = () => {
     const linkClasses =
       'relative before:absolute before:bottom-[-5px] before:h-[5px] before:w-[0] before:mt-[5px] before:bg-primary before:transition-all before:duration-300';
     return (
       <>
         <li>
-          <Link to="/#personal" className={linkClasses} onClick={linkClicked}>
+          <NavLink to="/personal" className={linkClasses}>
             Personal
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/#portfolio" className={linkClasses} onClick={linkClicked}>
+          <NavLink to="/portfolio" className={linkClasses}>
             Portfolio
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/#blog" className={linkClasses} onClick={linkClicked}>
+          <NavLink to="/blog" className={linkClasses}>
             Blog
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/#stats" className={linkClasses} onClick={linkClicked}>
+          <NavLink to="/stats" className={linkClasses}>
             Stats
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/#contact" className={linkClasses} onClick={linkClicked}>
+          <NavLink to="/contact" className={linkClasses}>
             Contact
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link to="/cv" onClick={linkClicked} className={`${linkClasses}`}>
+          <NavLink to="/cv" className={linkClasses}>
             CV
-          </Link>
+          </NavLink>
         </li>
       </>
     );
@@ -80,22 +69,20 @@ const Navigation = ({ toggleDarkTheme, isDarkTheme }: NavigationProps) => {
   return (
     <nav className="fixed bg-purple dark:bg-darkgrey text-text h-16 w-full z-50">
       <div className="flex h-full container mx-auto justify-between items-center px-6 md:px-0">
-        <Link to="/">
-          <a className="logo flex flex-row text-lg lg:text-2xl">
-            <LogoLetter letter="t" />
-            <LogoLetter letter="h" />
-            <LogoLetter letter="o" />
-            <LogoLetter letter="m" />
-            <LogoLetter letter="a" />
-            <LogoLetter letter="s" />
-            <span>&nbsp;</span>
-            <LogoLetter letter="l" />
-            <LogoLetter letter="e" />
-            <LogoLetter letter="d" />
-            <LogoLetter letter="o" />
-            <LogoLetter letter="u" />
-            <LogoLetter letter="x" />
-          </a>
+        <Link className="logo flex flex-row text-lg lg:text-2xl" to="/">
+          <LogoLetter letter="t" />
+          <LogoLetter letter="h" />
+          <LogoLetter letter="o" />
+          <LogoLetter letter="m" />
+          <LogoLetter letter="a" />
+          <LogoLetter letter="s" />
+          <span>&nbsp;</span>
+          <LogoLetter letter="l" />
+          <LogoLetter letter="e" />
+          <LogoLetter letter="d" />
+          <LogoLetter letter="o" />
+          <LogoLetter letter="u" />
+          <LogoLetter letter="x" />
         </Link>
         <ul className="hidden md:flex md:gap-6">{renderNavigationItems()}</ul>
         <ul

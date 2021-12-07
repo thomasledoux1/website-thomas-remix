@@ -4,6 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faStarFull } from '@fortawesome/free-solid-svg-icons';
 import TimelineItem from '../components/TimelineItem';
+import { MetaFunction } from 'remix';
+
+export let meta: MetaFunction = () => {
+  return {
+    title: 'Thomas Ledoux | CV',
+    description: "Thomas Ledoux' CV",
+  };
+};
 
 const CV = () => {
   const age = Math.floor(
