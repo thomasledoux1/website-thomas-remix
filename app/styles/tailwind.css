@@ -1112,10 +1112,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   filter: var(--tw-filter);
 }
 
-.filter {
-  filter: var(--tw-filter);
-}
-
 .transition-shadow {
   transition-property: box-shadow;
   transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
