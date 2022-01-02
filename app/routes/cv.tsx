@@ -47,9 +47,9 @@ const CV = () => {
   }, []);
 
   return (
-    <section id="cv" className="dark:bg-lightgrey text-text">
-      <div className="container py-12 mx-auto grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
-        <div className="col-span-1 mx-6 sm:mx-0">
+    <section id="cv" className="text-text">
+      <div className="container pt-12 mx-auto grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
+        <div className="col-span-1">
           <div className="text-center">
             <img
               className="rounded-full"
@@ -59,10 +59,10 @@ const CV = () => {
               width={640}
               height={640}
             />
-            <p>Hello, is it me you&apos;re looking for?</p>
+            <p className="mt-4">Hello, is it me you&apos;re looking for?</p>
           </div>
         </div>
-        <div className="col-span-1 mx-6 mt-6 sm:mt-0 sm:mx-0 sm:col-span-2 flex flex-col justify-center">
+        <div className="col-span-1 mt-6 sm:mt-0 sm:col-span-2 flex flex-col justify-center">
           <h1 className="text-2xl md:text-4xl mb-4 font-bold">
             A bit about me
           </h1>
@@ -92,7 +92,7 @@ const CV = () => {
             </p>
           </div>
         </div>
-        <div className="col-span-1 mx-6 mt-6 sm:mt-0 sm:mx-0">
+        <div className="col-span-1 mt-6 sm:mt-0">
           <h2 className="text-xl lg:text-2xl mb-4 font-bold">Technologies</h2>
           {technologies.map((technology, i) => (
             <div key={i} className="flex justify-between mb-4">
@@ -101,7 +101,7 @@ const CV = () => {
             </div>
           ))}
         </div>
-        <div className="col-span-1 mx-6 mt-6 sm:mt-0 sm:mx-0 sm:col-span-2">
+        <div className="col-span-1 mt-6 sm:mt-0 sm:col-span-2">
           <h2 className="text-xl lg:text-2xl mb-4 font-bold">My timeline</h2>
           <div className="flex w-full flex-col timeline-container relative after:bg-lightpurple dark:after:bg-darkgrey after:absolute after:w-1 after:h-full">
             <TimelineItem index={0}>

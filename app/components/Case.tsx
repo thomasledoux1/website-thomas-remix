@@ -18,7 +18,7 @@ export default function Case({
   children,
 }: CaseProps) {
   return (
-    <div className="p-6 border-4 border-secondary rounded-xl hover:shadow-lg transition-shadow transition-duration-300 ease-in-out dark:bg-darkgrey text-text">
+    <div className="p-6 border-4 border-purple rounded-xl hover:shadow-lg transition-shadow transition-duration-300 ease-in-out">
       <div className="portfolio-case h-full">
         <a
           target="_blank"
@@ -32,7 +32,7 @@ export default function Case({
               height={100}
               alt={`Logo ${logoAlt}`}
               src={img}
-              className="inline-block max-w-xs"
+              className="inline-block max-w-full lg:max-w-xs"
             />
           </div>
           {children}

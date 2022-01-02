@@ -28,15 +28,16 @@ const Contact = () => {
   return (
     <section id="contact" className="text-text">
       <div className="container grid md:grid-cols-2 gap-6 min-h-screen-without-nav content-center align-items">
-        <div className="p-6 flex flex-col justify-center">
+        <div className="flex flex-col justify-center">
           <img
             alt="Illustration of man sitting on a block"
             src="/contact.svg"
             width={645}
             height={750}
+            className="max-h-[250px] lg:max-h-[500px]"
           />
         </div>
-        <div className="p-6 flex justify-center flex-col">
+        <div className="flex justify-center flex-col">
           <h2 className="mb-6 text-2xl font-bold">Drop me a message</h2>
           <Outlet />
         </div>

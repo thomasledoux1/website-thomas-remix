@@ -5,18 +5,16 @@ type SocialLinkProps = {
   label: string;
   href: string;
   icon: IconProp;
-  fill?: string;
 };
 
-const SocialLink = ({
-  label,
-  href,
-  icon,
-  fill = 'fill-current',
-}: SocialLinkProps) => (
+const SocialLink = ({ label, href, icon }: SocialLinkProps) => (
   <li>
     <a target="_blank" rel="noopener noreferrer" aria-label={label} href={href}>
-      <FontAwesomeIcon size="2x" icon={icon} className={fill} />
+      <FontAwesomeIcon
+        size="2x"
+        icon={icon}
+        className="fill-current dark:text-purple"
+      />
     </a>
   </li>
 );

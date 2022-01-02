@@ -14,8 +14,12 @@ const Personal = () => {
   return (
     <section id="personal">
       <div className="container mx-auto grid md:grid-cols-2 md:gap-8 min-h-screen-without-nav items-center content-center">
-        <img alt="Illustration of me working on laptop" src="/personal.svg" />
-        <div className="bg-purple rounded-lg dark:bg-lightgrey text-text p-6 mt-12 sm:mt-0 mx-6 sm:mx-0">
+        <img
+          className="mt-6"
+          alt="Illustration of me working on laptop"
+          src="/personal.svg"
+        />
+        <div className="bg-purple rounded-lg p-6 mt-12 md:mt-0">
           <div>
             <h2 className="mb-6 text-2xl font-bold">Personal Information</h2>
             <p className="mb-4">

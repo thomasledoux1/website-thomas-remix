@@ -27,9 +27,15 @@ export let links: LinksFunction = () => {
  * component for your app.
  */
 export default function App() {
+  const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
+  let location = useLocation();
+  React.useEffect(() => {
+    setMobileNavOpen(false);
+  }, [location]);
+
   return (
     <Document>
-      <Layout>
+      <Layout mobileNavOpen={mobileNavOpen} setMobileNavOpen={setMobileNavOpen}>
         <Outlet />
       </Layout>
     </Document>
@@ -80,11 +86,13 @@ export function CatchBoundary() {
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout>
-        <h1>
-          {caught.status}: {caught.statusText}
-        </h1>
-        {message}
+      <Layout mobileNavOpen={false} setMobileNavOpen={() => {}}>
+        <>
+          <h1>
+            {caught.status}: {caught.statusText}
+          </h1>
+          {message}
+        </>
       </Layout>
     </Document>
   );
@@ -94,7 +102,7 @@ export function ErrorBoundary({ error }: { error: Error }) {
   console.error(error);
   return (
     <Document title="Error!">
-      <Layout>
+      <Layout mobileNavOpen={false} setMobileNavOpen={() => {}}>
         <div>
           <h1>There was an error</h1>
           <p>{error.message}</p>

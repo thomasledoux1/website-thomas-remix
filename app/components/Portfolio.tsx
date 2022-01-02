@@ -1,7 +1,7 @@
 import Case from './Case';
 
 const Portfolio = () => (
-  <div className="grid mx-6 sm:mx-0 grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+  <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
     <Case
       url="https://www.karaton.be"
       logoAlt="Karaton"

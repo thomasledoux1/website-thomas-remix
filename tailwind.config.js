@@ -1,7 +1,6 @@
 const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
-  mode: 'jit',
-  purge: ['./app/**/*.tsx', './components/**/*.tsx'],
+  content: ['./app/**/*.tsx', './components/**/*.tsx'],
   darkMode: 'class',
   theme: {
     extend: {
@@ -30,7 +29,7 @@ module.exports = {
         'link-dark-hover': 'inset 0 -18px 0 #b55400',
       },
       minHeight: {
-        'screen-without-nav': 'calc(100vh - 9.125rem)',
+        'screen-without-nav': 'calc(100vh - 13.125rem)',
       },
       keyframes: {
         'title-part1': {

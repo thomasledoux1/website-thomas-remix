@@ -9,12 +9,12 @@ export let meta: MetaFunction = () => {
 };
 
 const Portfolio = () => (
-  <section id="portfolio" className="dark:bg-lightgrey text-text">
-    <div className="container mx-auto min-h-screen-without-nav items-center content-center py-12">
+  <section id="portfolio" className="text-text">
+    <div className="container mx-auto min-h-screen-without-nav items-center content-center pt-12">
       <h2 className="text-center text-2xl mb-6 md:mb-12 font-bold">
         Some of my work
       </h2>
-      <div className="grid mx-6 sm:mx-0 grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
         <Case
           url="https://www.karaton.be"
           logoAlt="Karaton"

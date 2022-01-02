@@ -41,7 +41,7 @@ const Blog = () => {
     .slice(0, 5);
   return (
     <section id="blog" className="text-text">
-      <div className="container mx-auto min-h-screen-without-nav flex flex-col items-center justify-center py-12">
+      <div className="container mx-auto min-h-screen-without-nav flex flex-col items-center justify-center pt-12">
         <h2 className="text-center text-2xl font-bold mb-6">
           Personal blog - most read
         </h2>
@@ -55,9 +55,9 @@ const Blog = () => {
                   key={blog.id}
                   href={blog.url}
                   aria-label={blog.title}
-                  className="transform border-4 border-purple rounded-xl transition-transform hover:scale-[1.02]"
+                  className="transform border-4 border-purple rounded-xl transition-transform p-6 hover:scale-[1.02]"
                 >
-                  <article className="bg-white relative rounded-lg dark:bg-lightgrey text-text p-6 mx-6 sm:mx-0">
+                  <article className="relative rounded-lg text-textsm:mx-0">
                     <>
                       <div className="flex justify-between">
                         <div className="flex justify-between mb-3 items-start w-full">

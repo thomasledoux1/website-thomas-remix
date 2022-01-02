@@ -5,13 +5,12 @@ import {
   faDev,
 } from '@fortawesome/free-brands-svg-icons';
 const Footer = () => (
-  <footer className="bg-secondary">
+  <footer className="bg-secondary relative">
     <div className="p-6 flex justify-center items-center">
       <ul className="flex gap-6">
         <SocialLink
           label="linkedin"
           href="https://www.linkedin.com/in/thomasledoux91"
-          fill="text-linkedIn"
           icon={faLinkedin}
         />
         <SocialLink
