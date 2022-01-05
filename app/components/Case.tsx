@@ -1,4 +1,5 @@
 import { v4 as uuidv4 } from 'uuid';
+import { OptimizedImage } from '~/components/OptimizedImage';
 
 type CaseProps = {
   url: string;
@@ -27,7 +28,7 @@ export default function Case({
           href={url}
         >
           <div className="h-24 max-h-24 text-center mb-4">
-            <img
+            <OptimizedImage
               width={logoWidth}
               height={100}
               alt={`Logo ${logoAlt}`}

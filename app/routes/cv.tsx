@@ -5,6 +5,7 @@ import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
 import { faStar as faStarFull } from '@fortawesome/free-solid-svg-icons';
 import TimelineItem from '../components/TimelineItem';
 import { MetaFunction } from 'remix';
+import { OptimizedImage } from '~/components/OptimizedImage';
 
 export let meta: MetaFunction = () => {
   return {
@@ -51,11 +52,10 @@ const CV = () => {
       <div className="container pt-12 mx-auto grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
         <div className="col-span-1">
           <div className="text-center">
-            <img
+            <OptimizedImage
               className="rounded-full"
               alt="Profile picture"
               src="/me.jpeg"
-              placeholder="blur"
               width={640}
               height={640}
             />

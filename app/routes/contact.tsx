@@ -1,6 +1,7 @@
 import { MetaFunction, Outlet, redirect } from 'remix';
 import type { ActionFunction } from 'remix';
 import axios from 'axios';
+import { OptimizedImage } from '~/components/OptimizedImage';
 
 export let meta: MetaFunction = () => {
   return {

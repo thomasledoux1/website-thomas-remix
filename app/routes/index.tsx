@@ -1,4 +1,5 @@
 import { Link, MetaFunction } from 'remix';
+import { OptimizedImage } from '~/components/OptimizedImage';
 
 export let meta: MetaFunction = () => {
   return {
@@ -28,11 +29,10 @@ export default function Index() {
             </Link>
           </h1>
           <div className="w-3/4">
-            <img
+            <OptimizedImage
               className="rounded-full"
               alt="Profile picture"
               src="/me.jpeg"
-              placeholder="blur"
               width={640}
               height={640}
             />
