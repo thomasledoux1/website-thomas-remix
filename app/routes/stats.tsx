@@ -44,10 +44,10 @@ export let meta: MetaFunction = () => {
 };
 
 export async function loader() {
-  const { refresh_token, id, tokenExpiration, access_token } =
+  const { refresh_token, id, expiration_token, access_token } =
     await getAccessToken();
   let token = access_token;
-  if (tokenExpiration <= Math.round(Date.now() / 1000)) {
+  if (expiration_token <= Math.round(Date.now() / 1000)) {
     const resToken = await fetch(
       `https://www.strava.com/api/v3/oauth/token?client_id=${process.env.CLIENT_ID_STRAVA}&client_secret=${process.env.CLIENT_SECRET_STRAVA}&grant_type=refresh_token&refresh_token=${refresh_token}`,
       {
@@ -69,6 +69,7 @@ export async function loader() {
       expiration_token: newTokenExpiration,
     });
   }
+  console.log(token);
 
   const resStats = await fetch(
     'https://www.strava.com/api/v3/athletes/40229513/stats',
@@ -79,6 +80,7 @@ export async function loader() {
     }
   );
   const stravaStats = await resStats.json();
+  console.log(stravaStats);
   return {
     stravaStats,
   };
@@ -93,7 +95,6 @@ const Stats = () => {
   const activeStatsAllTime = showRunning
     ? stravaStats.all_run_totals
     : stravaStats.all_ride_totals;
-  console.log(activeStatsYtd);
   const btnClass =
     'px-6 lg:px-12 py-2 lg:py-4 border-2 border-purple flex justify-center cursor-pointer  w-1/2 text-center';
   const btnActiveClass = 'bg-primary text-white border-purple';
@@ -206,3 +207,9 @@ const Stats = () => {
 };
 
 export default Stats;
+
+export function headers() {
+  return {
+    'Cache-Control': 'max-age=0, s-max-age=86400, stale-while-revalidate=86400',
+  };
+}
