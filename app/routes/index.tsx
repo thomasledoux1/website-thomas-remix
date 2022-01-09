@@ -16,7 +16,7 @@ export let meta: MetaFunction = () => {
   return {
     title: 'Thomas Ledoux | Home',
     description: "Thomas Ledoux' personal website",
-    'twitter:card': '/me.jpeg',
+    'twitter:card': 'https://thomasledoux.be/me.jpeg',
     'twitter:title': 'Thomas Ledoux | Home',
     'twitter:description': "Thomas Ledoux' personal website",
     'og:image': 'https://thomasledoux.be/me.jpeg',
