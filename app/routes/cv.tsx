@@ -52,7 +52,7 @@ const CV = () => {
       <div className="container pt-12 mx-auto grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
         <div className="col-span-1">
           <div className="text-center">
-            <OptimizedImage
+            <img
               className="rounded-full"
               alt="Profile picture"
               src="/me.jpeg"

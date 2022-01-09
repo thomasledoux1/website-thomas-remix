@@ -28,7 +28,7 @@ export default function Case({
           href={url}
         >
           <div className="h-24 max-h-24 text-center mb-4">
-            <OptimizedImage
+            <img
               width={logoWidth}
               height={100}
               alt={`Logo ${logoAlt}`}

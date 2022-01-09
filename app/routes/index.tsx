@@ -29,7 +29,7 @@ export default function Index() {
             </Link>
           </h1>
           <div className="w-3/4">
-            <OptimizedImage
+            <img
               className="rounded-full"
               alt="Profile picture"
               src="/me.jpeg"

@@ -15,7 +15,7 @@ const Personal = () => {
   return (
     <section id="personal">
       <div className="container mx-auto grid md:grid-cols-2 md:gap-8 min-h-screen-without-nav items-center content-center">
-        <OptimizedImage
+        <img
           className="mt-6"
           alt="Illustration of me working on laptop"
           src="/personal.svg"
