@@ -5,6 +5,12 @@ export let meta: MetaFunction = () => {
   return {
     title: 'Thomas Ledoux | Portfolio',
     description: 'Projects Thomas Ledoux worked on',
+    'twitter:card': 'https://thomasledoux.be/me.jpeg',
+    'twitter:title': 'Thomas Ledoux | Portfolio',
+    'twitter:description': 'Projects Thomas Ledoux worked on',
+    'og:image': 'https://thomasledoux.be/me.jpeg',
+    'og:title': 'Thomas Ledoux | Portfolio',
+    'og:description': 'Projects Thomas Ledoux worked on',
   };
 };
 

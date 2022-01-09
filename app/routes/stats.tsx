@@ -40,6 +40,12 @@ export let meta: MetaFunction = () => {
   return {
     title: 'Thomas Ledoux | Stats',
     description: "Thomas Ledoux' Strava stats",
+    'twitter:card': 'https://thomasledoux.be/me.jpeg',
+    'twitter:title': 'Thomas Ledoux | Stats',
+    'twitter:description': "Thomas Ledoux' Strava stats",
+    'og:image': 'https://thomasledoux.be/me.jpeg',
+    'og:title': 'Thomas Ledoux | Stats',
+    'og:description': "Thomas Ledoux' Strava stats",
   };
 };
 

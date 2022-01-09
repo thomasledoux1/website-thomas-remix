@@ -1,10 +1,27 @@
 import { Link, MetaFunction } from 'remix';
 import { OptimizedImage } from '~/components/OptimizedImage';
+import type { LinksFunction } from 'remix';
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: 'preload',
+      href: '/me.jpeg',
+      as: 'image',
+    },
+  ];
+};
 
 export let meta: MetaFunction = () => {
   return {
     title: 'Thomas Ledoux | Home',
     description: "Thomas Ledoux' personal website",
+    'twitter:card': '/me.jpeg',
+    'twitter:title': 'Thomas Ledoux | Home',
+    'twitter:description': "Thomas Ledoux' personal website",
+    'og:image': 'https://thomasledoux.be/me.jpeg',
+    'og:title': 'Thomas Ledoux | Home',
+    'og:description': "Thomas Ledoux' personal website",
   };
 };
 

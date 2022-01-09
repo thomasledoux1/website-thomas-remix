@@ -5,8 +5,14 @@ import { OptimizedImage } from '~/components/OptimizedImage';
 
 export let meta: MetaFunction = () => {
   return {
-    title: 'Thomas Ledoux | Blog',
+    title: 'Thomas Ledoux | Contact',
     description: 'Find contact information for Thomas Ledoux here',
+    'twitter:card': 'https://thomasledoux.be/me.jpeg',
+    'twitter:title': 'Thomas Ledoux | Contact',
+    'twitter:description': 'Find contact information for Thomas Ledoux here',
+    'og:image': 'https://thomasledoux.be/me.jpeg',
+    'og:title': 'Thomas Ledoux | Contact',
+    'og:description': 'Find contact information for Thomas Ledoux here',
   };
 };
 

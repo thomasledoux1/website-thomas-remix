@@ -6,11 +6,28 @@ import { faStar as faStarFull } from '@fortawesome/free-solid-svg-icons';
 import TimelineItem from '../components/TimelineItem';
 import { MetaFunction } from 'remix';
 import { OptimizedImage } from '~/components/OptimizedImage';
+import type { LinksFunction } from 'remix';
+
+export const links: LinksFunction = () => {
+  return [
+    {
+      rel: 'preload',
+      href: '/me.jpeg',
+      as: 'image',
+    },
+  ];
+};
 
 export let meta: MetaFunction = () => {
   return {
     title: 'Thomas Ledoux | CV',
     description: "Thomas Ledoux' CV",
+    'twitter:card': 'https://thomasledoux.be/me.jpeg',
+    'twitter:title': 'Thomas Ledoux | CV',
+    'twitter:description': "Thomas Ledoux' CV",
+    'og:image': 'https://thomasledoux.be/me.jpeg',
+    'og:title': 'Thomas Ledoux | CV',
+    'og:description': "Thomas Ledoux' CV",
   };
 };
 
