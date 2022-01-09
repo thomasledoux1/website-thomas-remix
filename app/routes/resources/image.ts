@@ -82,7 +82,7 @@ export let loader: LoaderFunction = async ({ request }) => {
     let status = 200;
 
     if (src.startsWith('/') && (src.length === 1 || src[1] !== '/')) {
-      imageBody = fs.createReadStream(path.resolve('public', src.slice(1)));
+      imageBody = fs.createReadStream(path.resolve(src.slice(1)));
     } else {
       let imgRequest = new Request(src.toString()) as unknown as NodeRequest;
       imgRequest.agent = new https.Agent({
