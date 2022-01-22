@@ -201,7 +201,10 @@ progress[value]::-webkit-progress-value {
 
 #wrapper {
   min-height: 100vh;
-  @supports (-webkit-touch-callout: none) {
+}
+
+@supports (-webkit-touch-callout: none) {
+  #wrapper {
     min-height: -webkit-fill-available;
   }
 }
