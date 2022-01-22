@@ -28,9 +28,6 @@ module.exports = {
         'link-dark': 'inset 0 -4px 0 #b55400',
         'link-dark-hover': 'inset 0 -18px 0 #b55400',
       },
-      minHeight: {
-        'screen-without-nav': 'calc(100vh - 13.125rem)',
-      },
       keyframes: {
         'title-part1': {
           '0%, 100%': { color: 'var(--text)' },

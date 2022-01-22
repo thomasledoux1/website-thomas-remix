@@ -198,3 +198,46 @@ progress[value]::-webkit-progress-value {
     transform: scale(1.2);
   }
 }
+
+#wrapper {
+  min-height: 100vh;
+  @supports (-webkit-touch-callout: none) {
+    min-height: -webkit-fill-available;
+  }
+}
+
+#mobileNavigationToggle:not(.open) span:first-child {
+  transform: rotate(0deg);
+}
+
+#mobileNavigationToggle:not(.open) span:nth-child(2) {
+  opacity: 100;
+}
+
+#mobileNavigationToggle:not(.open) span:nth-child(3) {
+  transform: rotate(-0deg);
+  top: 1.25rem;
+}
+
+#mobileNavigationToggle.open span:first-child {
+  transform: rotate(135deg);
+  top: 0.75rem;
+}
+
+#mobileNavigationToggle.open span:nth-child(2) {
+  opacity: 0;
+  left: -10rem;
+}
+
+#mobileNavigationToggle.open span:nth-child(3) {
+  transform: rotate(-135deg);
+  top: 0.75rem;
+}
+
+#mobileNavigation:not(.open) {
+  transform: translateX(100%);
+}
+
+#mobileNavigation.open {
+  transform: translateX(0);
+}

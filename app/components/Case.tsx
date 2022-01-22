@@ -1,14 +1,13 @@
-import { v4 as uuidv4 } from 'uuid';
-import { OptimizedImage } from '~/components/OptimizedImage';
+import {v4 as uuidv4} from 'uuid'
 
 type CaseProps = {
-  url: string;
-  logoWidth: number;
-  logoAlt: string;
-  img: string;
-  tags: string[];
-  children: JSX.Element | JSX.Element[];
-};
+  url: string
+  logoWidth: number
+  logoAlt: string
+  img: string
+  tags: string[]
+  children: JSX.Element | JSX.Element[]
+}
 
 export default function Case({
   url,
@@ -40,7 +39,7 @@ export default function Case({
           <div className="flex flex-col mt-4 flex-grow justify-end">
             <ul className="flex flex-wrap">
               {tags.map(tag => {
-                const key = uuidv4();
+                const key = uuidv4()
                 return (
                   <li
                     className="bg-primary text-white text-sm my-1 py-1 px-4 mr-2 rounded-md"
@@ -48,12 +47,12 @@ export default function Case({
                   >
                     {tag}
                   </li>
-                );
+                )
               })}
             </ul>
           </div>
         </a>
       </div>
     </div>
-  );
+  )
 }

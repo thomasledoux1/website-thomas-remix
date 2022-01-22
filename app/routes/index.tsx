@@ -1,36 +1,31 @@
-import { Link, MetaFunction } from 'remix';
-import { OptimizedImage } from '~/components/OptimizedImage';
-import type { LinksFunction } from 'remix';
+import {Link, MetaFunction} from 'remix'
+import type {LinksFunction} from 'remix'
 
-export const links: LinksFunction = () => {
-  return [
-    {
-      rel: 'preload',
-      href: '/me.jpeg',
-      as: 'image',
-    },
-  ];
-};
+export const links: LinksFunction = () => [
+  {
+    rel: 'preload',
+    href: '/me.jpeg',
+    as: 'image',
+  },
+]
 
-export let meta: MetaFunction = () => {
-  return {
-    title: 'Thomas Ledoux | Home',
-    description: "Thomas Ledoux' personal website",
-    'twitter:card': 'https://thomasledoux.be/me.jpeg',
-    'twitter:title': 'Thomas Ledoux | Home',
-    'twitter:description': "Thomas Ledoux' personal website",
-    'og:image': 'https://thomasledoux.be/me.jpeg',
-    'og:title': 'Thomas Ledoux | Home',
-    'og:description': "Thomas Ledoux' personal website",
-  };
-};
+export const meta: MetaFunction = () => ({
+  title: 'Thomas Ledoux | Home',
+  description: "Thomas Ledoux' personal website",
+  'twitter:card': 'https://thomasledoux.be/me.jpeg',
+  'twitter:title': 'Thomas Ledoux | Home',
+  'twitter:description': "Thomas Ledoux' personal website",
+  'og:image': 'https://thomasledoux.be/me.jpeg',
+  'og:title': 'Thomas Ledoux | Home',
+  'og:description': "Thomas Ledoux' personal website",
+})
 
 export default function Index() {
   return (
     <>
       <section
         id="hero"
-        className="relative pt-4 min-h-screen-without-nav items-center content-center flex text-text"
+        className="relative lg:pt-0 items-center content-center flex text-text"
       >
         <div className="container gap-8 md:gap-0 grid md:grid-cols-2 items-center content-center justify-items-center">
           <h1 className="text-4xl font-bold md:text-6xl flex flex-col items-center md:items-start">
@@ -48,7 +43,7 @@ export default function Index() {
           <div className="w-3/4">
             <img
               className="rounded-full"
-              alt="Profile picture"
+              alt="Profile"
               src="/me.jpeg"
               width={640}
               height={640}
@@ -57,5 +52,5 @@ export default function Index() {
         </div>
       </section>
     </>
-  );
+  )
 }

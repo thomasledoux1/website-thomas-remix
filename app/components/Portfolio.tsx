@@ -1,4 +1,4 @@
-import Case from './Case';
+import Case from './Case'
 
 const Portfolio = () => (
   <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-12">
@@ -188,5 +188,5 @@ const Portfolio = () => (
       </p>
     </Case>
   </div>
-);
-export default Portfolio;
+)
+export default Portfolio

@@ -1,77 +1,88 @@
-import React, { useEffect } from 'react';
-import AOS from 'aos';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faStar as faStarEmpty } from '@fortawesome/free-regular-svg-icons';
-import { faStar as faStarFull } from '@fortawesome/free-solid-svg-icons';
-import TimelineItem from '../components/TimelineItem';
-import { MetaFunction } from 'remix';
-import { OptimizedImage } from '~/components/OptimizedImage';
-import type { LinksFunction } from 'remix';
+import {useEffect} from 'react'
+import AOS from 'aos'
+import {MetaFunction} from 'remix'
+import type {LinksFunction} from 'remix'
+import TimelineItem from '../components/TimelineItem'
 
-export const links: LinksFunction = () => {
-  return [
-    {
-      rel: 'preload',
-      href: '/me.jpeg',
-      as: 'image',
-    },
-  ];
-};
+export const links: LinksFunction = () => [
+  {
+    rel: 'preload',
+    href: '/me.jpeg',
+    as: 'image',
+  },
+]
 
-export let meta: MetaFunction = () => {
-  return {
-    title: 'Thomas Ledoux | CV',
-    description: "Thomas Ledoux' CV",
-    'twitter:card': 'https://thomasledoux.be/me.jpeg',
-    'twitter:title': 'Thomas Ledoux | CV',
-    'twitter:description': "Thomas Ledoux' CV",
-    'og:image': 'https://thomasledoux.be/me.jpeg',
-    'og:title': 'Thomas Ledoux | CV',
-    'og:description': "Thomas Ledoux' CV",
-  };
-};
+export const meta: MetaFunction = () => ({
+  title: 'Thomas Ledoux | CV',
+  description: "Thomas Ledoux' CV",
+  'twitter:card': 'https://thomasledoux.be/me.jpeg',
+  'twitter:title': 'Thomas Ledoux | CV',
+  'twitter:description': "Thomas Ledoux' CV",
+  'og:image': 'https://thomasledoux.be/me.jpeg',
+  'og:title': 'Thomas Ledoux | CV',
+  'og:description': "Thomas Ledoux' CV",
+})
 
 const CV = () => {
   const age = Math.floor(
-    (new Date().getTime() - new Date('1991-07-11').getTime()) / 3.15576e10
-  );
+    (new Date().getTime() - new Date('1991-07-11').getTime()) / 3.15576e10,
+  )
   const technologies = [
-    { name: 'React', numberOfStars: 4 },
-    { name: 'Vue.js', numberOfStars: 2 },
-    { name: 'Angular', numberOfStars: 2 },
-    { name: 'Gatsby.js', numberOfStars: 3 },
-    { name: 'Next.js', numberOfStars: 4 },
-    { name: 'React Native', numberOfStars: 3 },
-    { name: 'Swift', numberOfStars: 2 },
-    { name: 'Wordpress', numberOfStars: 3 },
-    { name: 'ES6', numberOfStars: 4 },
-    { name: 'HTML', numberOfStars: 5 },
-    { name: 'CSS', numberOfStars: 4 },
-  ];
+    {name: 'React', numberOfStars: 4},
+    {name: 'Vue.js', numberOfStars: 2},
+    {name: 'Angular', numberOfStars: 2},
+    {name: 'Gatsby.js', numberOfStars: 3},
+    {name: 'Next.js', numberOfStars: 4},
+    {name: 'React Native', numberOfStars: 3},
+    {name: 'Swift', numberOfStars: 2},
+    {name: 'Wordpress', numberOfStars: 3},
+    {name: 'ES6', numberOfStars: 4},
+    {name: 'HTML', numberOfStars: 5},
+    {name: 'CSS', numberOfStars: 4},
+  ]
   const renderStars = (amount: number) =>
     // @ts-ignore
-    Array.apply(null, { length: 5 }).map((_, i) => (
-      <span className="star" key={i}>
-        <FontAwesomeIcon
-          className={`fill-current text-primary ${i < amount ? 'full' : ''}`}
-          icon={i < amount ? faStarFull : faStarEmpty}
-        />
+    // eslint-disable-next-line prefer-spread
+    Array.apply(null, {length: 5}).map((_, i) => (
+      <span
+        className={`star ${i < amount ? 'text-primary' : 'text-white'}`}
+        // eslint-disable-next-line react/no-array-index-key
+        key={i}
+      >
+        <svg
+          className="w-6 h-6"
+          xmlns="http://www.w3.org/2000/svg"
+          width="192"
+          height="192"
+          fill="#000000"
+          viewBox="0 0 256 256"
+        >
+          <rect width="256" height="256" fill="none" />
+          <path
+            d="M132.4,190.7l50.4,32c6.5,4.1,14.5-2,12.6-9.5l-14.6-57.4a8.7,8.7,0,0,1,2.9-8.8l45.2-37.7c5.9-4.9,2.9-14.8-4.8-15.3l-59-3.8a8.3,8.3,0,0,1-7.3-5.4l-22-55.4a8.3,8.3,0,0,0-15.6,0l-22,55.4a8.3,8.3,0,0,1-7.3,5.4L31.9,94c-7.7.5-10.7,10.4-4.8,15.3L72.3,147a8.7,8.7,0,0,1,2.9,8.8L61.7,209c-2.3,9,7.3,16.3,15,11.4l46.9-29.7A8.2,8.2,0,0,1,132.4,190.7Z"
+            fill="currentColor"
+            stroke="#000000"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth="16"
+          />
+        </svg>
       </span>
-    ));
+    ))
   useEffect(() => {
     AOS.init({
       duration: 1000,
-    });
-  }, []);
+    })
+  }, [])
 
   return (
-    <section id="cv" className="text-text">
-      <div className="container pt-12 mx-auto grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
+    <section id="cv" className="text-text my-8">
+      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
         <div className="col-span-1">
           <div className="text-center">
             <img
               className="rounded-full"
-              alt="Profile picture"
+              alt="Profile"
               src="/me.jpeg"
               width={640}
               height={640}
@@ -111,10 +122,12 @@ const CV = () => {
         </div>
         <div className="col-span-1 mt-6 sm:mt-0">
           <h2 className="text-xl lg:text-2xl mb-4 font-bold">Technologies</h2>
-          {technologies.map((technology, i) => (
-            <div key={i} className="flex justify-between mb-4">
+          {technologies.map(technology => (
+            <div key={technology.name} className="flex justify-between mb-4">
               <div>{technology.name}</div>
-              <div>{renderStars(technology.numberOfStars)}</div>
+              <div className="flex">
+                {renderStars(technology.numberOfStars)}
+              </div>
             </div>
           ))}
         </div>
@@ -205,7 +218,7 @@ const CV = () => {
         </div>
       </div>
     </section>
-  );
-};
+  )
+}
 
-export default CV;
+export default CV

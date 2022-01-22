@@ -1,22 +1,20 @@
-import { MetaFunction } from 'remix';
-import Case from '../components/Case';
+import {MetaFunction} from 'remix'
+import Case from '../components/Case'
 
-export let meta: MetaFunction = () => {
-  return {
-    title: 'Thomas Ledoux | Portfolio',
-    description: 'Projects Thomas Ledoux worked on',
-    'twitter:card': 'https://thomasledoux.be/me.jpeg',
-    'twitter:title': 'Thomas Ledoux | Portfolio',
-    'twitter:description': 'Projects Thomas Ledoux worked on',
-    'og:image': 'https://thomasledoux.be/me.jpeg',
-    'og:title': 'Thomas Ledoux | Portfolio',
-    'og:description': 'Projects Thomas Ledoux worked on',
-  };
-};
+export const meta: MetaFunction = () => ({
+  title: 'Thomas Ledoux | Portfolio',
+  description: 'Projects Thomas Ledoux worked on',
+  'twitter:card': 'https://thomasledoux.be/me.jpeg',
+  'twitter:title': 'Thomas Ledoux | Portfolio',
+  'twitter:description': 'Projects Thomas Ledoux worked on',
+  'og:image': 'https://thomasledoux.be/me.jpeg',
+  'og:title': 'Thomas Ledoux | Portfolio',
+  'og:description': 'Projects Thomas Ledoux worked on',
+})
 
 const Portfolio = () => (
-  <section id="portfolio" className="text-text">
-    <div className="container mx-auto min-h-screen-without-nav items-center content-center pt-12">
+  <section id="portfolio" className="text-text my-8">
+    <div className="container mx-auto items-center content-center">
       <h2 className="text-center text-2xl mb-6 md:mb-12 font-bold">
         Some of my work
       </h2>
@@ -215,6 +213,6 @@ const Portfolio = () => (
       </div>
     </div>
   </section>
-);
+)
 
-export default Portfolio;
+export default Portfolio

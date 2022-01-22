@@ -1,4 +1,4 @@
-import type { ComponentPropsWithoutRef } from 'react';
+import type {ComponentPropsWithoutRef} from 'react'
 
 export function OptimizedImage({
   optimizerUrl = '/resources/image',
@@ -6,51 +6,54 @@ export function OptimizedImage({
   src,
   ...rest
 }: ComponentPropsWithoutRef<'img'> & {
-  optimizerUrl?: string;
+  optimizerUrl?: string
   responsive?: {
-    maxWidth?: number;
-    size: { width: number; height?: number };
-  }[];
+    maxWidth?: number
+    size: {width: number; height?: number}
+  }[]
 }) {
-  let url = src ? optimizerUrl + '?src=' + encodeURIComponent(src) : src;
+  const url = src ? `${optimizerUrl}?src=${encodeURIComponent(src)}` : src
 
-  let props: ComponentPropsWithoutRef<'img'> = {
-    src: url + `&width=${rest.width || ''}&height=${rest.height || ''}`,
-  };
+  const props: ComponentPropsWithoutRef<'img'> = {
+    src: `${url}&width=${rest.width || ''}&height=${rest.height || ''}`,
+  }
 
-  let largestImageWidth = 0;
-  let largestImageSrc: string | undefined;
+  let largestImageWidth = 0
+  let largestImageSrc: string | undefined
   if (responsive && responsive.length) {
-    let srcSet = '';
-    let sizes = '';
-    for (let { maxWidth, size } of responsive) {
+    let srcSet = ''
+    let sizes = ''
+    // eslint-disable-next-line no-restricted-syntax
+    for (const {maxWidth, size} of responsive) {
       if (srcSet) {
-        srcSet += ', ';
+        srcSet += ', '
       }
-      let srcSetUrl =
-        url + `&width=${size.width}&height=${size.height || ''} ${size.width}w`;
-      srcSet += srcSetUrl;
+      const srcSetUrl = `${url}&width=${size.width}&height=${
+        size.height || ''
+      } ${size.width}w`
+      srcSet += srcSetUrl
 
       if (maxWidth) {
         if (sizes) {
-          sizes += ', ';
+          sizes += ', '
         }
-        sizes += `(max-width: ${maxWidth}px) ${size.width}px`;
+        sizes += `(max-width: ${maxWidth}px) ${size.width}px`
       }
 
       if (size.width > largestImageWidth) {
-        largestImageWidth = size.width;
-        largestImageSrc = srcSetUrl;
+        largestImageWidth = size.width
+        largestImageSrc = srcSetUrl
       }
     }
-    props.srcSet = srcSet;
-    props.sizes = sizes;
-    props.src = '';
+    props.srcSet = srcSet
+    props.sizes = sizes
+    props.src = ''
   }
 
   if (largestImageSrc && (!rest.width || largestImageWidth > rest.width)) {
-    props.src = largestImageSrc;
+    props.src = largestImageSrc
   }
 
-  return <img {...rest} {...props} />;
+  // eslint-disable-next-line jsx-a11y/alt-text
+  return <img {...rest} {...props} />
 }

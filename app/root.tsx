@@ -1,4 +1,5 @@
-import * as React from 'react';
+// eslint-disable-next-line no-use-before-define
+import * as React from 'react'
 import {
   Links,
   LiveReload,
@@ -8,18 +9,18 @@ import {
   ScrollRestoration,
   useCatch,
   useLocation,
-} from 'remix';
-import type { LinksFunction } from 'remix';
+  useMatches,
+} from 'remix'
+import type {LinksFunction} from 'remix'
 
-import global from './styles/global.css';
-import tailwindUrl from './styles/tailwind.css';
-import Layout from './components/Layout';
-export let links: LinksFunction = () => {
-  return [
-    { rel: 'stylesheet', href: global },
-    { rel: 'stylesheet', href: tailwindUrl },
-  ];
-};
+import global from './styles/global.css'
+import tailwindUrl from './styles/tailwind.css'
+import Layout from './components/Layout'
+
+export const links: LinksFunction = () => [
+  {rel: 'stylesheet', href: global},
+  {rel: 'stylesheet', href: tailwindUrl},
+]
 
 /**
  * The root module's default export is a component that renders the current
@@ -27,27 +28,25 @@ export let links: LinksFunction = () => {
  * component for your app.
  */
 export default function App() {
-  const [mobileNavOpen, setMobileNavOpen] = React.useState(false);
-  let location = useLocation();
-  React.useEffect(() => {
-    setMobileNavOpen(false);
-  }, [location]);
-
+  const matches = useMatches()
+  const isStatsPage = matches.some(match => match.pathname === '/stats')
   return (
+    // eslint-disable-next-line no-use-before-define
     <Document>
-      <Layout mobileNavOpen={mobileNavOpen} setMobileNavOpen={setMobileNavOpen}>
+      <Layout>
         <Outlet />
       </Layout>
+      {isStatsPage ? <Scripts /> : null}
     </Document>
-  );
+  )
 }
 
 function Document({
   children,
   title,
 }: {
-  children: React.ReactNode;
-  title?: string;
+  children: React.ReactNode
+  title?: string
 }) {
   return (
     <html lang="en">
@@ -60,33 +59,33 @@ function Document({
       </head>
       <body>
         {children}
+        {/* eslint-disable-next-line no-use-before-define */}
         <RouteChangeAnnouncement />
         <ScrollRestoration />
-        <Scripts />
         {process.env.NODE_ENV === 'development' && <LiveReload />}
       </body>
     </html>
-  );
+  )
 }
 
 export function CatchBoundary() {
-  let caught = useCatch();
+  const caught = useCatch()
 
-  let message;
+  let message
   switch (caught.status) {
     case 404:
       message = (
         <p>Oops! Looks like you tried to visit a page that does not exist.</p>
-      );
-      break;
+      )
+      break
 
     default:
-      throw new Error(caught.data || caught.statusText);
+      throw new Error(caught.data || caught.statusText)
   }
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout mobileNavOpen={false} setMobileNavOpen={() => {}}>
+      <Layout>
         <>
           <h1>
             {caught.status}: {caught.statusText}
@@ -95,14 +94,14 @@ export function CatchBoundary() {
         </>
       </Layout>
     </Document>
-  );
+  )
 }
 
-export function ErrorBoundary({ error }: { error: Error }) {
-  console.error(error);
+export function ErrorBoundary({error}: {error: Error}) {
+  console.error(error)
   return (
     <Document title="Error!">
-      <Layout mobileNavOpen={false} setMobileNavOpen={() => {}}>
+      <Layout>
         <div>
           <h1>There was an error</h1>
           <p>{error.message}</p>
@@ -111,38 +110,38 @@ export function ErrorBoundary({ error }: { error: Error }) {
         </div>
       </Layout>
     </Document>
-  );
+  )
 }
 
 /**
  * Provides an alert for screen reader users when the route changes.
  */
 const RouteChangeAnnouncement = React.memo(() => {
-  let [hydrated, setHydrated] = React.useState(false);
-  let [innerHtml, setInnerHtml] = React.useState('');
-  let location = useLocation();
+  const [hydrated, setHydrated] = React.useState(false)
+  const [innerHtml, setInnerHtml] = React.useState('')
+  const location = useLocation()
 
   React.useEffect(() => {
-    setHydrated(true);
-  }, []);
+    setHydrated(true)
+  }, [])
 
-  let firstRenderRef = React.useRef(true);
+  const firstRenderRef = React.useRef(true)
   React.useEffect(() => {
     // Skip the first render because we don't want an announcement on the
     // initial page load.
     if (firstRenderRef.current) {
-      firstRenderRef.current = false;
-      return;
+      firstRenderRef.current = false
+      return
     }
 
-    let pageTitle = location.pathname === '/' ? 'Home page' : document.title;
-    setInnerHtml(`Navigated to ${pageTitle}`);
-  }, [location.pathname]);
+    const pageTitle = location.pathname === '/' ? 'Home page' : document.title
+    setInnerHtml(`Navigated to ${pageTitle}`)
+  }, [location.pathname])
 
   // Render nothing on the server. The live region provides no value unless
   // scripts are loaded and the browser takes over normal routing.
   if (!hydrated) {
-    return null;
+    return null
   }
 
   return (
@@ -166,5 +165,5 @@ const RouteChangeAnnouncement = React.memo(() => {
     >
       {innerHtml}
     </div>
-  );
-});
+  )
+})
