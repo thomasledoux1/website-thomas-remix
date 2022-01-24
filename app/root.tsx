@@ -5,11 +5,9 @@ import {
   LiveReload,
   Meta,
   Outlet,
-  Scripts,
   ScrollRestoration,
   useCatch,
   useLocation,
-  useMatches,
 } from 'remix'
 import type {LinksFunction} from 'remix'
 
@@ -28,15 +26,12 @@ export const links: LinksFunction = () => [
  * component for your app.
  */
 export default function App() {
-  const matches = useMatches()
-  const isStatsPage = matches.some(match => match.pathname === '/stats')
   return (
     // eslint-disable-next-line no-use-before-define
     <Document>
       <Layout>
         <Outlet />
       </Layout>
-      {isStatsPage ? <Scripts /> : null}
     </Document>
   )
 }

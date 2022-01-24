@@ -33,7 +33,7 @@ export default function Index() {
             <Link className="animate-title-part1" to="/portfolio">
               developer
             </Link>
-            <Link className="animate-title-part2" to="/stats">
+            <Link className="animate-title-part2" to="/personal">
               cyclist
             </Link>
             <Link className="animate-title-part3" to="/personal">
