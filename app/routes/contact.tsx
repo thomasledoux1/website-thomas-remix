@@ -39,7 +39,6 @@ const Contact = () => (
         />
       </div>
       <div className="flex justify-center flex-col">
-        <h2 className="mb-6 text-2xl font-bold">Drop me a message</h2>
         <Outlet />
       </div>
     </div>

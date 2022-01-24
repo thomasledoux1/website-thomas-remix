@@ -585,11 +585,6 @@ Ensure the default browser behavior of the `hidden` attribute.
   margin-bottom: 2rem;
 }
 
-.my-2 {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
-}
-
 .mb-4 {
   margin-bottom: 1rem;
 }
@@ -877,6 +872,10 @@ Ensure the default browser behavior of the `hidden` attribute.
 
 .gap-3 {
   gap: 0.75rem;
+}
+
+.gap-2 {
+  gap: 0.5rem;
 }
 
 .self-center {

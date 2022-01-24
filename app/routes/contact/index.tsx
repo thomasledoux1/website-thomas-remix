@@ -24,9 +24,10 @@ const Contact = () => {
   const status = useActionData()
   // Show the optimistic UI once submission starts.
   return (
-    <Form method="post">
-      <div className="flex flex-col mb-4">
-        <label className="mb-3" htmlFor="email">
+    <>
+      <h2 className="mb-6 text-2xl font-bold">Drop me a message</h2>
+      <Form method="post">
+        <label className="flex flex-col gap-2 mb-4" htmlFor="email">
           Your e-mail
           <input
             className="py-2 px-4 bg-white border-secondary border-4 rounded-lg"
@@ -37,9 +38,7 @@ const Contact = () => {
             required
           />
         </label>
-      </div>
-      <div className="flex flex-col">
-        <label className="my-2" htmlFor="message">
+        <label className="flex flex-col gap-2" htmlFor="message">
           Your message
           <textarea
             className="py-2 px-4 bg-white border-secondary border-4 rounded-lg"
@@ -50,18 +49,18 @@ const Contact = () => {
             required
           />
         </label>
-      </div>
 
-      <button
-        className="px-8 mt-4 py-4 bg-primary text-white rounded-lg"
-        type="submit"
-      >
-        Submit
-      </button>
-      {status === 'error' && (
-        <p className="error">Ooops! There was an error. Try again later.</p>
-      )}
-    </Form>
+        <button
+          className="px-8 mt-4 py-4 bg-primary text-white rounded-lg"
+          type="submit"
+        >
+          Submit
+        </button>
+        {status === 'error' && (
+          <p className="error">Ooops! There was an error. Try again later.</p>
+        )}
+      </Form>
+    </>
   )
 }
 
