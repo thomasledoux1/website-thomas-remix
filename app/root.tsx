@@ -1,12 +1,16 @@
 // eslint-disable-next-line no-use-before-define
 import * as React from 'react'
 import {
+  ActionFunction,
   Links,
   LiveReload,
+  LoaderFunction,
   Meta,
   Outlet,
+  redirect,
   ScrollRestoration,
   useCatch,
+  useLoaderData,
   useLocation,
 } from 'remix'
 import type {LinksFunction} from 'remix'
@@ -14,11 +18,33 @@ import type {LinksFunction} from 'remix'
 import global from './styles/global.css'
 import tailwindUrl from './styles/tailwind.css'
 import Layout from './components/Layout'
+import {parseCookie} from './utils/parseCookie'
+import {theme} from './cookie'
 
 export const links: LinksFunction = () => [
   {rel: 'stylesheet', href: global},
   {rel: 'stylesheet', href: tailwindUrl},
 ]
+
+export const loader: LoaderFunction = async ({request}) => {
+  const cookie = await parseCookie(request, theme)
+  console.log('cookie in loader', cookie)
+  if (!cookie.theme) cookie.theme = 'light'
+  return {theme: cookie.theme}
+}
+
+export const action: ActionFunction = async ({request}) => {
+  const cookie = await parseCookie(request, theme)
+  const formData = await request.formData()
+  cookie.theme = formData.get('theme') || cookie.theme || 'light'
+  const returnUrl = formData.get('returnUrl') || '/'
+  const serializedCookie = await theme.serialize(cookie)
+  return redirect(returnUrl.toString(), {
+    headers: {
+      'Set-Cookie': serializedCookie,
+    },
+  })
+}
 
 /**
  * The root module's default export is a component that renders the current
@@ -26,10 +52,11 @@ export const links: LinksFunction = () => [
  * component for your app.
  */
 export default function App() {
+  const cookie = useLoaderData()
   return (
     // eslint-disable-next-line no-use-before-define
     <Document>
-      <Layout>
+      <Layout theme={cookie.theme}>
         <Outlet />
       </Layout>
     </Document>
@@ -80,7 +107,7 @@ export function CatchBoundary() {
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout>
+      <Layout theme="light">
         <>
           <h1>
             {caught.status}: {caught.statusText}
@@ -96,7 +123,7 @@ export function ErrorBoundary({error}: {error: Error}) {
   console.error(error)
   return (
     <Document title="Error!">
-      <Layout>
+      <Layout theme="light">
         <div>
           <h1>There was an error</h1>
           <p>{error.message}</p>

@@ -1,4 +1,3 @@
-const defaultTheme = require('tailwindcss/defaultTheme');
 module.exports = {
   content: ['./app/**/*.tsx', './components/**/*.tsx'],
   darkMode: 'class',
@@ -30,16 +29,16 @@ module.exports = {
       },
       keyframes: {
         'title-part1': {
-          '0%, 100%': { color: 'var(--text)' },
-          '50%': { color: 'var(--primary)' },
+          '0%, 100%': {color: 'var(--text)'},
+          '50%': {color: 'var(--primary)'},
         },
         'title-part2': {
-          '0%, 100%': { color: 'var(--text)' },
-          '50%': { color: 'var(--yellow)' },
+          '0%, 100%': {color: 'var(--text)'},
+          '50%': {color: 'var(--yellow)'},
         },
         'title-part3': {
-          '0%, 100%': { color: 'var(--text)' },
-          '50%': { color: 'var(--blue)' },
+          '0%, 100%': {color: 'var(--text)'},
+          '50%': {color: 'var(--blue)'},
         },
       },
       animation: {
@@ -56,4 +55,4 @@ module.exports = {
       },
     },
   },
-};
+}
