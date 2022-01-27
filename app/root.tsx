@@ -28,7 +28,6 @@ export const links: LinksFunction = () => [
 
 export const loader: LoaderFunction = async ({request}) => {
   const cookie = await parseCookie(request, theme)
-  console.log('cookie in loader', cookie)
   if (!cookie.theme) cookie.theme = 'light'
   return {theme: cookie.theme}
 }

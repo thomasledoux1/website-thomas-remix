@@ -47,7 +47,7 @@ const Navigation = ({theme}: NavigationProps) => {
 
   return (
     <>
-      <nav className="fixed bg-purple transition-colors dark:bg-darkgrey text-text h-16 w-full z-50">
+      <nav className="fixed bg-purple dark:bg-darkgrey text-text h-16 w-full z-50">
         <div className="flex h-full container mx-auto justify-between items-center px-4 lg:px-16">
           <Link className="logo flex flex-row text-lg lg:text-2xl" to="/">
             <LogoLetter letter="t" />
@@ -91,10 +91,7 @@ const Navigation = ({theme}: NavigationProps) => {
               className="p-3 top-1 lg:top-auto overflow-hidden order-2 md:order-3 absolute left-2/4 transform -translate-x-2/4 md:translate-x-0 lg:transform-none md:relative md:left-0"
             >
               <div className="relative h-8 w-8">
-                <span
-                  style={{transformOrigin: '50% 100px'}}
-                  className="absolute transition-transform duration-300 inset-0 dark:rotate-0 rotate-90"
-                >
+                <span className="absolute inset-0 dark:hidden">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
@@ -110,10 +107,7 @@ const Navigation = ({theme}: NavigationProps) => {
                     />
                   </svg>
                 </span>
-                <span
-                  style={{transformOrigin: '50% 100px'}}
-                  className="absolute transition-transform duration-300 inset-0 rotate-0 dark:-rotate-90"
-                >
+                <span className="absolute inset-0 hidden dark:inline-block">
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
@@ -139,10 +133,6 @@ const Navigation = ({theme}: NavigationProps) => {
         document.getElementById('mobileNavigationToggle').addEventListener('click', function() {
           this.classList.toggle('open')
           document.getElementById('mobileNavigation').classList.toggle('open')
-        })
-        document.getElementById('darkModeToggle').addEventListener('click', function() {
-          const wrapper = document.getElementById('wrapper')
-          wrapper.classList.toggle('dark')
         })
       `,
         }}
