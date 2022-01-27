@@ -18,7 +18,11 @@ const Personal = () => {
   return (
     <section className="my-8 lg:my-0" id="personal">
       <div className="container mx-auto grid md:grid-cols-2 md:gap-8 items-center content-center">
-        <img alt="Illustration of me working on laptop" src="/personal.svg" />
+        <img
+          className="h-5/6 w-5/6 mx-auto"
+          alt="Illustration of me working on laptop"
+          src="/personal.svg"
+        />
         <div className="bg-purple rounded-lg p-6 mt-12 md:mt-0">
           <div>
             <h2 className="mb-6 text-2xl font-bold">Personal Information</h2>
