@@ -19,6 +19,8 @@ const Personal = () => {
     <section className="my-8 lg:my-0" id="personal">
       <div className="container mx-auto grid md:grid-cols-2 md:gap-8 items-center content-center">
         <img
+          width={194}
+          height={150}
           className="h-5/6 w-5/6 mx-auto"
           alt="Illustration of me working on laptop"
           src="/personal.svg"

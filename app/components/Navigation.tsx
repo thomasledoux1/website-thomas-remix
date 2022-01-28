@@ -66,7 +66,7 @@ const Navigation = ({theme}: NavigationProps) => {
           </Link>
           <ul className="hidden md:flex md:gap-6">{renderNavigationItems()}</ul>
           <ul
-            className="md:hidden absolute flex flex-col w-full top-16 left-0 py-4 items-center text-white bg-primary transform gap-4 transition-transform"
+            className="md:hidden absolute flex flex-col w-full top-16 left-0 py-4 items-center text-white bg-primary transform gap-4"
             id="mobileNavigation"
           >
             {renderNavigationItems()}
@@ -132,7 +132,9 @@ const Navigation = ({theme}: NavigationProps) => {
           __html: `
         document.getElementById('mobileNavigationToggle').addEventListener('click', function() {
           this.classList.toggle('open')
-          document.getElementById('mobileNavigation').classList.toggle('open')
+          const mobileNavigation = document.getElementById('mobileNavigation')
+          mobileNavigation.classList.add('transition-transform')
+          mobileNavigation.classList.toggle('open')
         })
       `,
         }}
