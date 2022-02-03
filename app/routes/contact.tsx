@@ -1,27 +1,23 @@
 import {MetaFunction, Outlet, redirect} from 'remix'
 import type {ActionFunction} from 'remix'
-import axios from 'axios'
 
 export const meta: MetaFunction = () => ({
   title: 'Thomas Ledoux | Contact',
   description: 'Find contact information for Thomas Ledoux here',
-  'twitter:card': 'https://thomasledoux.be/me.jpeg',
   'twitter:title': 'Thomas Ledoux | Contact',
   'twitter:description': 'Find contact information for Thomas Ledoux here',
-  'og:image': 'https://thomasledoux.be/me.jpeg',
   'og:title': 'Thomas Ledoux | Contact',
   'og:description': 'Find contact information for Thomas Ledoux here',
 })
 
 export const action: ActionFunction = async ({request}) => {
   const formData = await request.formData()
-  await axios({
-    url: 'https://formspree.io/f/xzbgjqdq',
+  await fetch('https://formspree.io/f/xzbgjqdq', {
     method: 'post',
     headers: {
       Accept: 'application/json',
     },
-    data: formData,
+    body: formData,
   }).catch(e => console.error(e))
   return redirect('/contact/thanks')
 }

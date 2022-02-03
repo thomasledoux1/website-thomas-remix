@@ -1,32 +1,11 @@
-import {Form, redirect, useActionData} from 'remix'
-import type {ActionFunction} from 'remix'
-import axios from 'axios'
-
-export const action: ActionFunction = async ({request}) => {
-  const formData = await request.formData()
-  await axios({
-    url: 'https://formspree.io/f/xzbgjqdq',
-    method: 'post',
-    headers: {
-      Accept: 'application/json',
-    },
-    data: {
-      email: formData.get('email'),
-      message: formData.get('message'),
-    },
-  }).catch(e => {
-    throw new Error(e)
-  })
-  return redirect('/contact/thanks')
-}
+import {useActionData} from 'remix'
 
 const Contact = () => {
   const status = useActionData()
-  // Show the optimistic UI once submission starts.
   return (
     <>
       <h2 className="mb-6 text-2xl font-bold">Drop me a message</h2>
-      <Form method="post">
+      <form method="post">
         <label className="flex flex-col gap-2 mb-4" htmlFor="email">
           Your e-mail
           <input
@@ -59,7 +38,7 @@ const Contact = () => {
         {status === 'error' && (
           <p className="error">Ooops! There was an error. Try again later.</p>
         )}
-      </Form>
+      </form>
     </>
   )
 }

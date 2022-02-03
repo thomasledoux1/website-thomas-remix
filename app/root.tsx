@@ -6,6 +6,7 @@ import {
   LiveReload,
   LoaderFunction,
   Meta,
+  MetaFunction,
   Outlet,
   redirect,
   ScrollRestoration,
@@ -45,6 +46,12 @@ export const action: ActionFunction = async ({request}) => {
   })
 }
 
+export const meta: MetaFunction = () => ({
+  'twitter:card': 'summary',
+  'twitter:image': 'https://thomasledoux.be/me.jpeg',
+  'og:image': 'https://thomasledoux.be/me.jpeg',
+})
+
 /**
  * The root module's default export is a component that renders the current
  * route via the `<Outlet />` component. Think of this as the global layout
@@ -55,6 +62,20 @@ export default function App() {
   return (
     // eslint-disable-next-line no-use-before-define
     <Document>
+      <link rel="preconnect" href="https://www.google-analytics.com" />
+      <script
+        async
+        src="https://www.googletagmanager.com/gtag/js?id=UA-125864873-1"
+      />
+      <script
+        dangerouslySetInnerHTML={{
+          __html: `window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-125864873-1');`,
+        }}
+      />
       <Layout theme={cookie.theme}>
         <Outlet />
       </Layout>

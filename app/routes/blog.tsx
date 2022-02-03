@@ -15,10 +15,8 @@ type BlogData = {
 export const meta: MetaFunction = () => ({
   title: 'Thomas Ledoux | Blog',
   description: 'Blogs written by Thomas Ledoux on Dev.to',
-  'twitter:card': 'https://thomasledoux.be/me.jpeg',
   'twitter:title': 'Thomas Ledoux | Blog',
   'twitter:description': 'Blogs written by Thomas Ledoux on Dev.to',
-  'og:image': 'https://thomasledoux.be/me.jpeg',
   'og:title': 'Thomas Ledoux | Blog',
   'og:description': 'Blogs written by Thomas Ledoux on Dev.to',
 })

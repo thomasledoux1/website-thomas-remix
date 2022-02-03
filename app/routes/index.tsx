@@ -12,10 +12,8 @@ export const links: LinksFunction = () => [
 export const meta: MetaFunction = () => ({
   title: 'Thomas Ledoux | Home',
   description: "Thomas Ledoux' personal website",
-  'twitter:card': 'https://thomasledoux.be/me.jpeg',
   'twitter:title': 'Thomas Ledoux | Home',
   'twitter:description': "Thomas Ledoux' personal website",
-  'og:image': 'https://thomasledoux.be/me.jpeg',
   'og:title': 'Thomas Ledoux | Home',
   'og:description': "Thomas Ledoux' personal website",
 })
