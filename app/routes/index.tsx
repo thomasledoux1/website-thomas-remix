@@ -20,35 +20,33 @@ export const meta: MetaFunction = () => ({
 
 export default function Index() {
   return (
-    <>
-      <section
-        id="hero"
-        className="relative lg:pt-0 items-center content-center flex text-text"
-      >
-        <div className="container gap-8 md:gap-0 grid md:grid-cols-2 items-center content-center justify-items-center">
-          <h1 className="text-4xl font-bold md:text-6xl flex flex-col items-center md:items-start">
-            <span>Thomas is a</span>
-            <Link className="animate-title-part1" to="/portfolio">
-              developer
-            </Link>
-            <Link className="animate-title-part2" to="/personal">
-              cyclist
-            </Link>
-            <Link className="animate-title-part3" to="/personal">
-              travel lover
-            </Link>
-          </h1>
-          <div className="w-3/4">
-            <img
-              className="rounded-full"
-              alt="Profile"
-              src="/me.jpeg"
-              width={640}
-              height={640}
-            />
-          </div>
+    <section
+      id="hero"
+      className="relative lg:pt-0 items-center content-center flex text-text"
+    >
+      <div className="container gap-8 md:gap-0 grid md:grid-cols-2 items-center content-center justify-items-center">
+        <h1 className="text-4xl font-bold md:text-6xl flex flex-col items-center md:items-start">
+          <span>Thomas is a</span>
+          <Link className="animate-title-part1" to="/portfolio">
+            developer
+          </Link>
+          <Link className="animate-title-part2" to="/personal">
+            cyclist
+          </Link>
+          <Link className="animate-title-part3" to="/personal">
+            travel lover
+          </Link>
+        </h1>
+        <div className="w-3/4">
+          <img
+            className="rounded-full"
+            alt="Profile"
+            src="/me.jpeg"
+            width={640}
+            height={640}
+          />
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   )
 }

@@ -51,10 +51,7 @@ const Personal = () => {
             </p>
             <p>
               You can read more about my work in the{' '}
-              <Link
-                className="shadow-link hover:text-white hover:shadow-link-hover dark:shadow-link-dark dark:hover:shadow-link-dark-hover transition-shadow"
-                to="/portfolio"
-              >
+              <Link className="link" to="/portfolio">
                 portfolio
               </Link>{' '}
               section .

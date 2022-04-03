@@ -30,7 +30,7 @@ const Contact = () => {
         </label>
 
         <button
-          className="px-8 mt-4 py-4 bg-primary text-white rounded-lg"
+          className="px-8 mt-4 py-4 bg-primary text-white rounded-lg hover:scale-[1.04] transition-transform"
           type="submit"
         >
           Submit

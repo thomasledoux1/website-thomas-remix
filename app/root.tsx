@@ -7,14 +7,16 @@ import {
   LoaderFunction,
   Meta,
   MetaFunction,
-  Outlet,
   redirect,
+  Scripts,
   ScrollRestoration,
   useCatch,
   useLoaderData,
   useLocation,
+  useOutlet,
 } from 'remix'
 import type {LinksFunction} from 'remix'
+import {AnimatePresence, motion} from 'framer-motion'
 
 import global from './styles/global.css'
 import tailwindUrl from './styles/tailwind.css'
@@ -59,10 +61,22 @@ export const meta: MetaFunction = () => ({
  */
 export default function App() {
   const cookie = useLoaderData()
+  const outlet = useOutlet()
   return (
     // eslint-disable-next-line no-use-before-define
     <Document>
+      <Scripts />
       <link rel="preconnect" href="https://www.google-analytics.com" />
+      <link rel="preconnect" href="https://fonts.googleapis.com" />
+      <link
+        rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossOrigin="true"
+      />
+      <link
+        href="https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Roboto:wght@400;700&display=swap"
+        rel="stylesheet"
+      />
       <script
         async
         src="https://www.googletagmanager.com/gtag/js?id=UA-125864873-1"
@@ -77,7 +91,17 @@ export default function App() {
         }}
       />
       <Layout theme={cookie.theme}>
-        <Outlet />
+        <AnimatePresence exitBeforeEnter initial={false}>
+          <motion.main
+            key={useLocation().key}
+            initial={{x: '-10%', opacity: 0}}
+            animate={{x: '0', opacity: 1}}
+            exit={{y: '-10%', opacity: 0}}
+            transition={{duration: 0.3}}
+          >
+            {outlet}
+          </motion.main>
+        </AnimatePresence>
       </Layout>
     </Document>
   )

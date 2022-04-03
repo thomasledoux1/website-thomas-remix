@@ -1,15 +1,13 @@
 import {MetaFunction, useLoaderData} from 'remix'
 import {v4 as uuidv4} from 'uuid'
 
-type BlogData = {
-  blogs: {
-    id: string
-    url: string
-    title: string
-    page_views_count: number
-    description: string
-    tag_list: string[]
-  }[]
+type Blog = {
+  id: string
+  url: string
+  title: string
+  page_views_count: number
+  description: string
+  tag_list: string[]
 }
 
 export const meta: MetaFunction = () => ({
@@ -21,24 +19,33 @@ export const meta: MetaFunction = () => ({
   'og:description': 'Blogs written by Thomas Ledoux on Dev.to',
 })
 
+type LoaderData = {
+  blogs?: Blog[]
+}
+
 export async function loader() {
-  const res = await fetch('https://dev.to/api/articles/me/published', {
-    // @ts-ignore
-    headers: {
-      'api-key': process.env.DEV_KEY,
-    },
-  })
-  const blogs = await res.json()
+  let blogs
+  try {
+    const res = await fetch('https://dev.to/api/articles/me/published', {
+      // @ts-ignore
+      headers: {
+        'api-key': process.env.DEV_KEY,
+      },
+    })
+
+    blogs = (await res.json()) as Blog[]
+  } catch (err) {
+    console.log(err)
+  }
   return {
-    blogs,
+    blogs: blogs
+      ?.sort((a, b) => b.page_views_count - a.page_views_count)
+      .slice(0, 5),
   }
 }
 
-const Blog = () => {
-  const {blogs} = useLoaderData<BlogData>()
-  const blogsToShow = blogs
-    ?.sort((a, b) => b.page_views_count - a.page_views_count)
-    .slice(0, 5)
+const Blogs = () => {
+  const loaderData = useLoaderData<LoaderData>()
   return (
     <section id="blog" className="text-text my-8">
       <div className="container mx-auto flex flex-col items-center justify-center">
@@ -46,14 +53,14 @@ const Blog = () => {
           Personal blog - most read
         </h2>
         <div className="flex flex-col gap-6">
-          {blogsToShow?.map(blog => (
+          {loaderData?.blogs?.map(blog => (
             <a
               target="_blank"
               rel="noopener noreferrer"
               key={blog.id}
               href={blog.url}
               aria-label={blog.title}
-              className="transform border-4 border-purple rounded-xl transition-transform p-6 hover:scale-[1.02]"
+              className="transform border-4 border-purple rounded-xl transition-transform p-6 hover:scale-[1.04]"
             >
               <article className="relative rounded-lg text-textsm:mx-0">
                 <>
@@ -110,7 +117,7 @@ const Blog = () => {
           href="https://dev.to/thomasledoux1"
           target="_blank"
           rel="noopener noreferrer"
-          className="px-8 mt-4 py-4 bg-primary text-white rounded-lg"
+          className="hover:scale-[1.04] transition-transform px-8 mt-4 py-4 bg-primary text-white rounded-lg"
         >
           Read more blogs
         </a>
@@ -119,7 +126,7 @@ const Blog = () => {
   )
 }
 
-export default Blog
+export default Blogs
 
 export function headers() {
   return {
