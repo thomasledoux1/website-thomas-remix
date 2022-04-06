@@ -1,3 +1,5 @@
+const defaultTheme = require('tailwindcss/defaultTheme')
+
 module.exports = {
   content: ['./app/**/*.tsx', './components/**/*.tsx'],
   darkMode: 'class',
@@ -22,10 +24,6 @@ module.exports = {
       boxShadow: {
         case: '0 1px 3px rgba(0,0,0,.12), 0 1px 2px rgba(0,0,0,.24)',
         'case-hover': '0 10px 28px rgba(0,0,0,.25), 0 8px 10px rgba(0,0,0,.22)',
-        link: 'inset 0 -4px 0 #6c63ff',
-        'link-hover': 'inset 0 -18px 0 #6c63ff',
-        'link-dark': 'inset 0 -4px 0 #b55400',
-        'link-dark-hover': 'inset 0 -18px 0 #b55400',
       },
       keyframes: {
         'title-part1': {
@@ -52,6 +50,10 @@ module.exports = {
       },
       zIndex: {
         '-1': '-1',
+      },
+      fontFamily: {
+        heading: ['Montserrat', ...defaultTheme.fontFamily.sans],
+        body: ['Roboto', ...defaultTheme.fontFamily.sans],
       },
     },
   },

@@ -1,5 +1,3 @@
-import {useEffect} from 'react'
-import AOS from 'aos'
 import {MetaFunction} from 'remix'
 import type {LinksFunction} from 'remix'
 import TimelineItem from '../components/TimelineItem'
@@ -67,11 +65,6 @@ const CV = () => {
         </svg>
       </span>
     ))
-  useEffect(() => {
-    AOS.init({
-      duration: 1000,
-    })
-  }, [])
 
   return (
     <section id="cv" className="text-text my-8">
@@ -99,7 +92,7 @@ const CV = () => {
               <a
                 target="_blank"
                 rel="noopener noreferrer"
-                className="cursor-pointer shadow-link hover:shadow-link-hover dark:shadow-link-dark dark:hover:shadow-link-dark-hover transition-shadow"
+                className="link"
                 href="https://www.the-reference.be"
               >
                 The Reference
@@ -139,7 +132,7 @@ const CV = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer shadow-link hover:shadow-link-hover dark:shadow-link-dark dark:hover:shadow-link-dark-hover transition-shadow"
+                  className="link"
                   href="https://reference.be"
                 >
                   The Reference
@@ -156,7 +149,7 @@ const CV = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer shadow-link hover:shadow-link-hover dark:shadow-link-dark dark:hover:shadow-link-dark-hover transition-shadow"
+                  className="link"
                   href="https://happsdevelopment.com"
                 >
                   Happs Development
@@ -173,7 +166,7 @@ const CV = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer shadow-link hover:shadow-link-hover dark:shadow-link-dark dark:hover:shadow-link-dark-hover transition-shadow"
+                  className="link"
                   href="https://getrialto.com"
                 >
                   Rialto
@@ -190,7 +183,7 @@ const CV = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer shadow-link hover:shadow-link-hover dark:shadow-link-dark dark:hover:shadow-link-dark-hover transition-shadow"
+                  className="link"
                   href="https://hogent.be"
                 >
                   Hogeschool Gent
@@ -204,7 +197,7 @@ const CV = () => {
                 <a
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="cursor-pointer shadow-link hover:shadow-link-hover dark:shadow-link-dark dark:hover:shadow-link-dark-hover transition-shadow"
+                  className="link"
                   href="https://telenet.be"
                 >
                   Telenet

@@ -1,4 +1,6 @@
-import {Link, NavLink, useLocation} from '@remix-run/react'
+import {Link, NavLink, useLocation, useTransition} from '@remix-run/react'
+// eslint-disable-next-line no-use-before-define
+import React from 'react'
 
 type NavigationProps = {
   theme: string
@@ -6,10 +8,17 @@ type NavigationProps = {
 
 const Navigation = ({theme}: NavigationProps) => {
   const oppositeTheme = theme === 'light' ? 'dark' : 'light'
+  const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const location = useLocation()
+  const transition = useTransition()
+  React.useEffect(() => {
+    if (transition.state === 'loading') {
+      setMobileMenuOpen(false)
+    }
+  }, [transition.state])
   const renderNavigationItems = () => {
     const linkClasses =
-      'relative before:absolute before:bottom-[-5px] before:h-[5px] before:w-[0] before:mt-[5px] before:bg-primary before:transition-all before:duration-300'
+      'relative before:absolute before:bottom-[-6px] md:before:bottom-[-4px] before:h-[4px] before:w-[0] before:mt-[4px] before:bg-white md:before:bg-primary before:transition-all before:duration-300'
     return (
       <>
         <li>
@@ -66,7 +75,9 @@ const Navigation = ({theme}: NavigationProps) => {
           </Link>
           <ul className="hidden md:flex md:gap-6">{renderNavigationItems()}</ul>
           <ul
-            className="md:hidden absolute flex flex-col w-full top-16 left-0 py-4 items-center text-white bg-primary transform gap-4"
+            className={`md:hidden absolute flex flex-col w-full top-16 left-0 py-4 transition-transform items-center text-white bg-primary transform gap-4 ${
+              !mobileMenuOpen ? '' : 'open'
+            }`}
             id="mobileNavigation"
           >
             {renderNavigationItems()}
@@ -75,7 +86,10 @@ const Navigation = ({theme}: NavigationProps) => {
             aria-label="Toggle mobile menu"
             type="button"
             id="mobileNavigationToggle"
-            className="md:hidden order-3 cursor-pointer relative w-5 h-6"
+            onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+            className={`md:hidden order-3 cursor-pointer relative w-5 h-6 ${
+              !mobileMenuOpen ? '' : 'open'
+            }`}
           >
             <span className="transform transition-transform duration-300 absolute h-1 w-full bg-primary rounded-lg left-0 top-1 rotate-0" />
             <span className="absolute transition-opacity duration-300 h-1 w-full bg-primary rounded-lg left-0 top-3" />
