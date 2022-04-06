@@ -5,7 +5,7 @@ import TimelineItem from '../components/TimelineItem'
 export const links: LinksFunction = () => [
   {
     rel: 'preload',
-    href: '/me.jpeg',
+    href: '/me.webp',
     as: 'image',
   },
 ]
@@ -74,7 +74,7 @@ const CV = () => {
             <img
               className="rounded-full"
               alt="Profile"
-              src="/me.jpeg"
+              src="/me.webp"
               width={640}
               height={640}
             />
