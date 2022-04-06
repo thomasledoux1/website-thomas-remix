@@ -127,9 +127,3 @@ const Blogs = () => {
 }
 
 export default Blogs
-
-export function headers() {
-  return {
-    'Cache-Control': 'public, max-age=0, s-max-age=86400',
-  }
-}
