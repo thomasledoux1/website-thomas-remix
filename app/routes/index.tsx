@@ -4,7 +4,7 @@ import type {LinksFunction} from 'remix'
 export const links: LinksFunction = () => [
   {
     rel: 'preload',
-    href: '/me.jpeg',
+    href: '/me.webp',
     as: 'image',
   },
 ]
@@ -41,7 +41,7 @@ export default function Index() {
           <img
             className="rounded-full"
             alt="Profile"
-            src="/me.jpeg"
+            src="/me.webp"
             width={640}
             height={640}
           />
