@@ -67,12 +67,12 @@ const CV = () => {
     ))
 
   return (
-    <section id="cv" className="text-text my-8">
-      <div className="container mx-auto grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
+    <section id="cv" className="container mx-auto px-4 lg:px-16 text-text my-8">
+      <div className="grid grid-cols-1 sm:grid-cols-3 sm:gap-16">
         <div className="col-span-1">
           <div className="text-center">
             <img
-              className="rounded-full"
+              className="rounded-full mx-auto w-[80%] max-w-[20rem] sm:max-w-none"
               alt="Profile"
               src="/me.webp"
               width={640}

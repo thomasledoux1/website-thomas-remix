@@ -11,8 +11,11 @@ export const meta: MetaFunction = () => ({
 })
 
 const Portfolio = () => (
-  <section id="portfolio" className="text-text my-8">
-    <div className="container mx-auto items-center content-center">
+  <section
+    id="portfolio"
+    className="container mx-auto px-4 lg:px-16 text-text my-8"
+  >
+    <div className="items-center content-center">
       <h2 className="text-center text-2xl mb-6 md:mb-12 font-bold">
         Some of my work
       </h2>
