@@ -47,8 +47,11 @@ export async function loader() {
 const Blogs = () => {
   const loaderData = useLoaderData<LoaderData>()
   return (
-    <section id="blog" className="text-text my-8">
-      <div className="container mx-auto flex flex-col items-center justify-center">
+    <section
+      id="blog"
+      className="container mx-auto px-4 lg:px-16 text-text my-8"
+    >
+      <div className="flex flex-col items-center justify-center">
         <h2 className="text-center text-2xl font-bold mb-6">
           Personal blog - most read
         </h2>
@@ -117,7 +120,7 @@ const Blogs = () => {
           href="https://dev.to/thomasledoux1"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:scale-[1.04] transition-transform px-8 mt-4 py-4 bg-primary text-white rounded-lg"
+          className="hover:scale-[1.04] transition-transform px-4 mt-4 py-4 bg-primary text-white rounded-lg"
         >
           Read more blogs
         </a>

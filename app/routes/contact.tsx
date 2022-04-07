@@ -23,8 +23,11 @@ export const action: ActionFunction = async ({request}) => {
 }
 
 const Contact = () => (
-  <section id="contact" className="text-text pb-8 lg:pb-0">
-    <div className="container grid md:grid-cols-2 gap-6 content-center align-items">
+  <section
+    id="contact"
+    className="container mx-auto px-4 lg:px-16 text-text pb-8 lg:pb-0"
+  >
+    <div className="grid md:grid-cols-2 gap-6 content-center align-items">
       <div className="flex flex-col justify-center">
         <img
           alt="Illustration of man sitting on a block"

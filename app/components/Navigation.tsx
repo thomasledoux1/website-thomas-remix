@@ -1,4 +1,4 @@
-import {Link, NavLink, useLocation, useTransition} from '@remix-run/react'
+import {Link, NavLink, useLocation} from '@remix-run/react'
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
 
@@ -10,12 +10,9 @@ const Navigation = ({theme}: NavigationProps) => {
   const oppositeTheme = theme === 'light' ? 'dark' : 'light'
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const location = useLocation()
-  const transition = useTransition()
   React.useEffect(() => {
-    if (transition.state === 'loading') {
-      setMobileMenuOpen(false)
-    }
-  }, [transition.state])
+    setMobileMenuOpen(false)
+  }, [location])
   const renderNavigationItems = () => {
     const linkClasses =
       'relative before:absolute before:bottom-[-6px] md:before:bottom-[-4px] before:h-[4px] before:w-[0] before:mt-[4px] before:bg-white md:before:bg-primary before:transition-all before:duration-300'
@@ -76,24 +73,32 @@ const Navigation = ({theme}: NavigationProps) => {
           <ul className="hidden md:flex md:gap-6">{renderNavigationItems()}</ul>
           <ul
             className={`md:hidden absolute flex flex-col w-full top-16 left-0 py-4 transition-transform items-center text-white bg-primary transform gap-4 ${
-              !mobileMenuOpen ? '' : 'open'
+              mobileMenuOpen ? 'translate-x-0' : 'translate-x-full'
             }`}
-            id="mobileNavigation"
           >
             {renderNavigationItems()}
           </ul>
           <button
             aria-label="Toggle mobile menu"
             type="button"
-            id="mobileNavigationToggle"
             onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-            className={`md:hidden order-3 cursor-pointer relative w-5 h-6 ${
-              !mobileMenuOpen ? '' : 'open'
-            }`}
+            className="md:hidden order-3 cursor-pointer relative w-5 h-6"
           >
-            <span className="transform transition-transform duration-300 absolute h-1 w-full bg-primary rounded-lg left-0 top-1 rotate-0" />
-            <span className="absolute transition-opacity duration-300 h-1 w-full bg-primary rounded-lg left-0 top-3" />
-            <span className="transform transition-transform duration-300 absolute h-1 w-full bg-primary rounded-lg left-0" />
+            <span
+              className={`transform transition-transform duration-300 absolute h-1 w-full bg-primary rounded-lg left-0 ${
+                mobileMenuOpen ? 'rotate-135 top-3' : 'rotate-0 top-1'
+              }`}
+            />
+            <span
+              className={`absolute transition-opacity duration-300 h-1 w-full bg-primary rounded-lg left-0 top-3 ${
+                mobileMenuOpen ? 'opacity-0 -left-[10rem]' : 'opacity-100'
+              }`}
+            />
+            <span
+              className={`transform transition-transform duration-300 absolute h-1 w-full bg-primary rounded-lg left-0 ${
+                mobileMenuOpen ? '-rotate-135 top-3' : 'rotate-0 top-5'
+              }`}
+            />
           </button>
           <form method="post" action="/">
             <input name="theme" type="hidden" value={oppositeTheme} />

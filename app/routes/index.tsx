@@ -22,9 +22,9 @@ export default function Index() {
   return (
     <section
       id="hero"
-      className="relative lg:pt-0 items-center content-center flex text-text"
+      className="container mx-auto relative lg:pt-0 items-center content-center flex text-text"
     >
-      <div className="container gap-8 md:gap-0 grid md:grid-cols-2 items-center content-center justify-items-center">
+      <div className="gap-8 md:gap-0 grid md:grid-cols-2 items-center content-center justify-items-center">
         <h1 className="text-4xl font-bold md:text-6xl flex flex-col items-center md:items-start">
           <span>Thomas is a</span>
           <Link className="animate-title-part1" to="/portfolio">
