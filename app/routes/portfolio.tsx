@@ -46,7 +46,7 @@ const Portfolio = () => (
         <Case
           url="https://www.getrialto.com"
           logoAlt="Rialto"
-          img="/logorialto.png"
+          img="/logorialto.webp"
           logoWidth={321}
           tags={['swift', 'ios']}
         >
@@ -68,7 +68,7 @@ const Portfolio = () => (
         <Case
           url="https://play.google.com/store/apps/details?id=com.carlierkathleen.rekenen&hl=nl"
           logoAlt="Carlier Rekenen"
-          img="/logocarlier.png"
+          img="/logocarlier.webp"
           logoWidth={100}
           tags={['react-native', 'reactjs']}
         >
@@ -114,7 +114,7 @@ const Portfolio = () => (
         <Case
           url="https://www.nationale-loterij.be"
           logoAlt="Nationale Loterij"
-          img="/logonalo.png"
+          img="/logonalo.webp"
           logoWidth={240}
           tags={['sitecore', 'reactjs', 'sass']}
         >
@@ -137,7 +137,7 @@ const Portfolio = () => (
         <Case
           url="https://www.achterderegenboog.be"
           logoAlt="Achter De Regenboog"
-          img="/logoachterderegenboog.png"
+          img="/logoachterderegenboog.webp"
           logoWidth={150}
           tags={['wordpress', 'html', 'css']}
         >
@@ -158,7 +158,7 @@ const Portfolio = () => (
         <Case
           url="https://www.deckdeckgo.com"
           logoAlt="DeckDeckGo"
-          img="/logodeckdeckgo.png"
+          img="/logodeckdeckgo.webp"
           logoWidth={100}
           tags={['open source', 'hacktoberfest', 'stencil', 'typescript']}
         >
@@ -177,7 +177,7 @@ const Portfolio = () => (
         <Case
           url="https://www.accentjobs.be"
           logoAlt="Accent Jobs"
-          img="/logoaccent.png"
+          img="/logoaccent.webp"
           logoWidth={532}
           tags={['gatsby', 'drupal', 'typescript', 'emotion']}
         >
@@ -194,7 +194,7 @@ const Portfolio = () => (
         <Case
           url="https://www.portofantwerp.be"
           logoAlt="Port Of Antwerp"
-          img="/logopoa.png"
+          img="/logopoa.webp"
           logoWidth={199}
           tags={['nextjs', 'drupal', 'typescript', 'tailwind']}
         >

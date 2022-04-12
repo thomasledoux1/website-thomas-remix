@@ -146,18 +146,6 @@ const Navigation = ({theme}: NavigationProps) => {
           </form>
         </div>
       </nav>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-        document.getElementById('mobileNavigationToggle').addEventListener('click', function() {
-          this.classList.toggle('open')
-          const mobileNavigation = document.getElementById('mobileNavigation')
-          mobileNavigation.classList.add('transition-transform')
-          mobileNavigation.classList.toggle('open')
-        })
-      `,
-        }}
-      />
     </>
   )
 }
