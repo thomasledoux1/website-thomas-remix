@@ -4,7 +4,7 @@ import type {LinksFunction} from 'remix'
 export const links: LinksFunction = () => [
   {
     rel: 'preload',
-    href: '/me.webp',
+    href: '/me-mobile.webp',
     as: 'image',
   },
 ]

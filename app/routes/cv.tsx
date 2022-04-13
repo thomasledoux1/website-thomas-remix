@@ -5,7 +5,7 @@ import TimelineItem from '../components/TimelineItem'
 export const links: LinksFunction = () => [
   {
     rel: 'preload',
-    href: '/me.webp',
+    href: '/me-mobile.webp',
     as: 'image',
   },
 ]
