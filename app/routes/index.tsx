@@ -44,8 +44,8 @@ export default function Index() {
             src="/me.webp"
             width={640}
             height={640}
-            sizes="(max-width: 600px) 480px, 800px"
-            srcSet="/me-mobile.webp 480w, /me.webp 800w"
+            sizes="(max-width: 600px) 320px, 800px"
+            srcSet="/me-mobile.webp 320w, /me.webp 640w"
           />
         </div>
       </div>
