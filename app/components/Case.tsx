@@ -2,9 +2,9 @@ import {v4 as uuidv4} from 'uuid'
 
 type CaseProps = {
   url: string
-  logoWidth: number
-  logoAlt: string
-  img: string
+  logoWidth?: number
+  logoAlt?: string
+  img?: string
   tags: string[]
   children: JSX.Element | JSX.Element[]
 }
@@ -25,13 +25,17 @@ export default function Case({
       href={url}
     >
       <div className="h-24 max-h-24 text-center mb-6 flex items-center justify-center">
-        <img
-          width={logoWidth}
-          height={100}
-          alt={`Logo ${logoAlt}`}
-          src={img}
-          className="inline-block max-w-full lg:max-w-xs"
-        />
+        {img ? (
+          <img
+            width={logoWidth}
+            height={100}
+            alt={`Logo ${logoAlt}`}
+            src={img}
+            className="inline-block max-w-full lg:max-w-xs"
+          />
+        ) : (
+          <span className="text-3xl lg:text-4xl">{logoAlt}</span>
+        )}
       </div>
       {children}
       <div className="flex flex-col mt-4 flex-grow justify-end">

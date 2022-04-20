@@ -260,6 +260,25 @@ const Portfolio = () => (
             with Algolia.
           </p>
         </Case>
+        <Case
+          url="/"
+          logoAlt="thomas ledoux"
+          tags={['remix', 'typescript', 'tailwind']}
+        >
+          <p className="mb-4">
+            I like to use my personal website as a playground for new ideas and
+            new technologies. The site used to be built in Next.js, but since
+            I&apos;ve been using Next.js frequently at work, I wanted to try
+            something new: Remix.
+          </p>
+          <p>
+            The conversion of the project wasn&apos;t very hard, and I ended up
+            learning a lot about the web fundamentals, since that&apos;s the
+            base Remix is built on. I noticed the TTI being a lot lower too,
+            because of the smarter way of doing network requests in Remix. So
+            far, I&apos;m sold!
+          </p>
+        </Case>
       </div>
     </div>
   </section>
