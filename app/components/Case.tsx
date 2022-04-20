@@ -21,7 +21,7 @@ export default function Case({
     <a
       target="_blank"
       rel="noopener noreferrer"
-      className="flex flex-col h-full p-6 border-4 border-purple rounded-xl hover:scale-[1.04] transition-transform"
+      className="flex flex-col h-full p-6 border-4 border-purple rounded-xl lg:hover:scale-[1.04] transition-transform"
       href={url}
     >
       <div className="h-24 max-h-24 text-center mb-4">

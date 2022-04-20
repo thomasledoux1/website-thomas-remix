@@ -63,7 +63,7 @@ const Blogs = () => {
               key={blog.id}
               href={blog.url}
               aria-label={blog.title}
-              className="transform border-4 border-purple rounded-xl transition-transform p-6 hover:scale-[1.04]"
+              className="transform border-4 border-purple rounded-xl transition-transform p-6 lg:hover:scale-[1.04]"
             >
               <article className="relative rounded-lg text-textsm:mx-0">
                 <>
@@ -120,7 +120,7 @@ const Blogs = () => {
           href="https://dev.to/thomasledoux1"
           target="_blank"
           rel="noopener noreferrer"
-          className="hover:scale-[1.04] transition-transform px-4 mt-4 py-4 bg-primary text-white rounded-lg"
+          className="lg:hover:scale-[1.04] transition-transform px-4 mt-4 py-4 bg-primary text-white rounded-lg"
         >
           Read more blogs
         </a>

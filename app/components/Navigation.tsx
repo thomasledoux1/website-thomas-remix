@@ -107,9 +107,9 @@ const Navigation = ({theme}: NavigationProps) => {
               aria-label="Toggle Dark Mode"
               type="submit"
               id="darkModeToggle"
-              className="top-1 lg:top-auto overflow-hidden order-2 md:order-3 absolute left-2/4 transform -translate-x-2/4 md:translate-x-0 lg:transform-none md:relative md:left-0"
+              className="inset-0 overflow-hidden order-2 md:order-3 absolute md:relative md:top-auto md:translate-x-0 md:translate-y-0 w-8 h-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-0"
             >
-              <div className="relative h-8 w-8 group">
+              <div className="relative group h-full">
                 <span className="absolute inset-0 hidden dark:inline-block">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
