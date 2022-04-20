@@ -107,16 +107,15 @@ const Navigation = ({theme}: NavigationProps) => {
               aria-label="Toggle Dark Mode"
               type="submit"
               id="darkModeToggle"
-              className="p-3 top-1 lg:top-auto overflow-hidden order-2 md:order-3 absolute left-2/4 transform -translate-x-2/4 md:translate-x-0 lg:transform-none md:relative md:left-0"
+              className="inset-0 overflow-hidden order-2 md:order-3 absolute md:relative md:top-auto md:translate-x-0 md:translate-y-0 w-8 h-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-0"
             >
-              <div className="relative h-8 w-8">
-                <span className="absolute inset-0 dark:hidden">
+              <div className="relative group h-full">
+                <span className="absolute inset-0 hidden dark:inline-block">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     viewBox="0 0 24 24"
-                    fill="currentColor"
                     stroke="currentColor"
-                    className="text-gray-800 dark:text-gray-200"
+                    className="text-gray-800 dark:text-gray-200  transition-[fill] dark:group-hover:text-yellow"
                   >
                     <path
                       strokeLinecap="round"
@@ -126,11 +125,11 @@ const Navigation = ({theme}: NavigationProps) => {
                     />
                   </svg>
                 </span>
-                <span className="absolute inset-0 hidden dark:inline-block">
+                <span className="absolute inset-0 inline-block dark:hidden">
                   <svg
                     fill="currentColor"
                     stroke="currentColor"
-                    className="text-gray-800  dark:text-gray-200"
+                    className="text-gray-800  dark:text-gray-200 transition-[fill] group-hover:text-yellow"
                     viewBox="0 0 24 24"
                   >
                     <path
@@ -146,18 +145,6 @@ const Navigation = ({theme}: NavigationProps) => {
           </form>
         </div>
       </nav>
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `
-        document.getElementById('mobileNavigationToggle').addEventListener('click', function() {
-          this.classList.toggle('open')
-          const mobileNavigation = document.getElementById('mobileNavigation')
-          mobileNavigation.classList.add('transition-transform')
-          mobileNavigation.classList.toggle('open')
-        })
-      `,
-        }}
-      />
     </>
   )
 }

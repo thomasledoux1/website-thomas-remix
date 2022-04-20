@@ -13,7 +13,7 @@ export const meta: MetaFunction = () => ({
 const Portfolio = () => (
   <section
     id="portfolio"
-    className="container mx-auto px-4 lg:px-16 text-text my-8"
+    className="container mx-auto px-4 lg:px-16 text-text my-12"
   >
     <div className="items-center content-center">
       <h2 className="text-center text-2xl mb-6 md:mb-12 font-bold">
@@ -28,10 +28,10 @@ const Portfolio = () => (
           tags={['mongodb', 'expressjs', 'angular', 'nodejs']}
         >
           <p className="mb-4">
-            For Happs Development I created and maintained the website for
-            Karaton where speech therapists and parents of dyslexic could follow
-            up on the progress their children/patients are making in the Karaton
-            game.
+            For Happs Development I created and maintained the <b>Angular</b>{' '}
+            website for Karaton where speech therapists and parents of dyslexic
+            could follow up on the progress their children/patients are making
+            in the Karaton game.
           </p>
           <p className="mb-4">
             There were a lot of graphs to be shown with Highcharts, a payment
@@ -46,13 +46,13 @@ const Portfolio = () => (
         <Case
           url="https://www.getrialto.com"
           logoAlt="Rialto"
-          img="/logorialto.png"
+          img="/logorialto.webp"
           logoWidth={321}
           tags={['swift', 'ios']}
         >
           <p className="mb-4">
-            At my internship for Rialto I created an iOS app from scratch in
-            Swift where real estate companies could easily manage their
+            At my internship for Rialto I created an iOS app from scratch in{' '}
+            <b>Swift</b> where real estate companies could easily manage their
             listings.
           </p>
           <p className="mb-4">
@@ -68,9 +68,9 @@ const Portfolio = () => (
         <Case
           url="https://play.google.com/store/apps/details?id=com.carlierkathleen.rekenen&hl=nl"
           logoAlt="Carlier Rekenen"
-          img="/logocarlier.png"
+          img="/logocarlier.webp"
           logoWidth={100}
-          tags={['react-native', 'reactjs']}
+          tags={['react-native', 'react']}
         >
           <p className="mb-4">
             While working at Happs Development I also created a mobile
@@ -79,12 +79,12 @@ const Portfolio = () => (
             form.
           </p>
           <p className="mb-4">
-            The app was created from scratch using React Native for fast
+            The app was created from scratch using <b>React Native</b> for fast
             development, and Expo to get fast previews of the app on real
             devices.
           </p>
           <p>
-            This project taught me a lot about animations, how to handle
+            This project taught me a lot about <b>animations</b>, how to handle
             dynamically generated sound output for the spoken numbers, learn
             which platform specific APIs to use..
           </p>
@@ -94,7 +94,7 @@ const Portfolio = () => (
           logoAlt="Carglass"
           img="/logocarglass.png"
           logoWidth={374}
-          tags={['sitecore', 'reactjs', 'less']}
+          tags={['sitecore', 'react', 'less']}
         >
           <p className="mb-4">
             At my current job at The Reference I help maintain the website for
@@ -103,7 +103,7 @@ const Portfolio = () => (
           </p>
           <p className="mb-4">
             We have a separate Backend Development team, so my focus is purely
-            on the Frontend Development in ReactJS.
+            on the Frontend Development in <b>React</b>.
           </p>
           <p>
             In the booking flows we make heavy use of MobX for state management,
@@ -114,9 +114,9 @@ const Portfolio = () => (
         <Case
           url="https://www.nationale-loterij.be"
           logoAlt="Nationale Loterij"
-          img="/logonalo.png"
+          img="/logonalo.webp"
           logoWidth={240}
-          tags={['sitecore', 'reactjs', 'sass']}
+          tags={['sitecore', 'react', 'sass']}
         >
           <p className="mb-4">
             One of the other clients I work for at The Reference is Nationale
@@ -125,8 +125,8 @@ const Portfolio = () => (
           </p>
           <p className="mb-4">
             In this project I get to test out even more new technologies, and
-            new features in the existing technologies (think React Hooks, CSS3
-            animations..).
+            new features in the existing technologies (think <b>React Hooks</b>,
+            CSS3 animations..).
           </p>
           <p>
             The feature I&apos;m most proud of is the interactive Sponsoring Map
@@ -137,18 +137,19 @@ const Portfolio = () => (
         <Case
           url="https://www.achterderegenboog.be"
           logoAlt="Achter De Regenboog"
-          img="/logoachterderegenboog.png"
+          img="/logoachterderegenboog.webp"
           logoWidth={150}
           tags={['wordpress', 'html', 'css']}
         >
           <p className="mb-4">
             In my free time I like to experiment with other frameworks and
-            technologies too, this is why I made a website using Wordpress for a
-            friend of mine who started a psychologists practice.
+            technologies too, this is why I made a website using{' '}
+            <b>Wordpress</b> for a friend of mine who started a psychologists
+            practice.
           </p>
           <p className="mb-4">
             My friend gave me some high level designs, and I got to work! I
-            selected a fitting theme.{' '}
+            selected a fitting theme.
           </p>
           <p>
             I built on the theme with a lot of plugins to optimize the speed of
@@ -158,17 +159,17 @@ const Portfolio = () => (
         <Case
           url="https://www.deckdeckgo.com"
           logoAlt="DeckDeckGo"
-          img="/logodeckdeckgo.png"
+          img="/logodeckdeckgo.webp"
           logoWidth={100}
           tags={['open source', 'hacktoberfest', 'stencil', 'typescript']}
         >
           <p className="mb-4">
-            In 2020 I participated in Hacktoberfest for the first time ever. I
-            did some research on which open source project I would like to
-            contribute to, and landed on DeckDeckGo.
+            In 2020 I participated in <b>Hacktoberfest</b> for the first time
+            ever. I did some research on which open source project I would like
+            to contribute to, and landed on DeckDeckGo.
           </p>
           <p>
-            It was a lot of fun to coloborate with other open source
+            It was a lot of fun to coloborate with other <b>open source</b>{' '}
             contributors, and to work in a new technological stack. I&apos;m
             definitely going to continue contributing to open source in the
             future!
@@ -177,7 +178,7 @@ const Portfolio = () => (
         <Case
           url="https://www.accentjobs.be"
           logoAlt="Accent Jobs"
-          img="/logoaccent.png"
+          img="/logoaccent.webp"
           logoWidth={532}
           tags={['gatsby', 'drupal', 'typescript', 'emotion']}
         >
@@ -186,22 +187,24 @@ const Portfolio = () => (
             within The Reference using our new MACH stack.
           </p>
           <p className="mb-4">
-            This was the first time I was using Gatsby for a production website,
-            and I must say it makes developing a breeze. Connecting everything
-            through API&apos;s, no hard dependecies on a CMS.. I love it.
+            This was the first time I was using <b>Gatsby</b> for a production
+            website, and I must say it makes developing a breeze. Connecting
+            everything through API&apos;s, no hard dependecies on a CMS.. I love
+            it.
           </p>
         </Case>
         <Case
           url="https://www.portofantwerp.be"
           logoAlt="Port Of Antwerp"
-          img="/logopoa.png"
+          img="/logopoa.webp"
           logoWidth={199}
-          tags={['nextjs', 'drupal', 'typescript', 'tailwind']}
+          tags={['nextjs', 'drupal', 'typescript', 'tailwind', 'algolia']}
         >
           <p className="mb-4">
             Starting february 2021, we started working on a new website for the
             Port of Antwerp. This website uses the MACH stack as mentioned
-            above, but with Next.js instead of Gatsby, and Tailwind for styling!
+            above, but with <b>Next.js</b> instead of Gatsby, and{' '}
+            <b>Tailwind</b> for styling!
           </p>
           <p>
             I really like this combo (this website is made with these
@@ -209,6 +212,52 @@ const Portfolio = () => (
             developer on this project. So far I&apos;ve learned a lot about the
             many features and possibilities of Next.js, and I&apos;m hoping to
             create the most performant website for this high profile client.
+          </p>
+        </Case>
+        <Case
+          url="https://www.sdworx.com"
+          logoAlt="SD Worx"
+          img="/logosd.webp"
+          logoWidth={377}
+          tags={[
+            'nextjs',
+            'drupal',
+            'typescript',
+            'bootstrap',
+            'algolia',
+            'kubernetes',
+          ]}
+        >
+          <p className="mb-4">
+            For SD Worx we went with almost the same stack as the project for
+            Port of Antwerp, only this time we were forced to use Bootstrap
+            instead of Tailwind. On this project I&apos;m also lead frontend
+            developer, and I do some devops work here too.
+          </p>
+          <p>
+            The devops work is mostly setting up the Azure build pipelines,
+            managing the <b>Kubernetes</b> cluster...
+          </p>
+        </Case>
+        <Case
+          url="https://www.sibelco.com"
+          logoAlt="Sibelco"
+          img="/logosibelco.webp"
+          logoWidth={305}
+          tags={['nextjs', 'kontent.ai', 'typescript', 'tailwind', 'algolia']}
+        >
+          <p className="mb-4">
+            Sibelco was the first client for who we worked with{' '}
+            <b>Kontent.ai</b>, which was a really great experience to work with.
+            We also started using <b>Storybook</b> for the first time at The
+            Reference in this project, which helped us a lot to prototype fast,
+            and create consistency.
+          </p>
+          <p>
+            In this project I coached 4 people, while also actively developing
+            new features. The greatest part was setting up the <b>Algolia</b>{' '}
+            integrations to index the materials and products, which was a breeze
+            with Algolia.
           </p>
         </Case>
       </div>

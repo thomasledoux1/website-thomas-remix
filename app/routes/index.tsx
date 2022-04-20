@@ -4,8 +4,15 @@ import type {LinksFunction} from 'remix'
 export const links: LinksFunction = () => [
   {
     rel: 'preload',
+    href: '/me-mobile.webp',
+    as: 'image',
+    media: '(max-width: 640px)',
+  },
+  {
+    rel: 'preload',
     href: '/me.webp',
     as: 'image',
+    media: '(min-width: 641px)',
   },
 ]
 
@@ -44,6 +51,8 @@ export default function Index() {
             src="/me.webp"
             width={640}
             height={640}
+            sizes="(max-width: 600px) 320px, 800px"
+            srcSet="/me-mobile.webp 320w, /me.webp 640w"
           />
         </div>
       </div>

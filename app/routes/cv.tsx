@@ -5,8 +5,15 @@ import TimelineItem from '../components/TimelineItem'
 export const links: LinksFunction = () => [
   {
     rel: 'preload',
+    href: '/me-mobile.webp',
+    as: 'image',
+    media: '(max-width: 640px)',
+  },
+  {
+    rel: 'preload',
     href: '/me.webp',
     as: 'image',
+    media: '(min-width: 641px)',
   },
 ]
 
@@ -77,6 +84,8 @@ const CV = () => {
               src="/me.webp"
               width={640}
               height={640}
+              sizes="(max-width: 600px) 320px, 800px"
+              srcSet="/me-mobile.webp 320w, /me.webp 640w"
             />
             <p className="mt-4">Hello, is it me you&apos;re looking for?</p>
           </div>
@@ -85,10 +94,11 @@ const CV = () => {
           <h1 className="text-2xl md:text-4xl mb-4 font-bold">
             A bit about me
           </h1>
-          <div>
+          <div className="leading-[1.6]">
             <p>
               Hi, I&apos;m Thomas. I&apos;m {age} years old, living in Ghent.
-              I&apos;m a professional Frontend Developer, currently working at{' '}
+              I&apos;m a professional <b>Frontend Developer</b>, currently
+              working at{' '}
               <a
                 target="_blank"
                 rel="noopener noreferrer"
