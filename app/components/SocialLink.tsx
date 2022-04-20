@@ -14,6 +14,7 @@ const SocialLink = ({label, href}: SocialLinkProps) => (
     >
       {label === 'linkedin' ? (
         <svg
+          className="transition-[fill] hover:fill-[#0077B7] dark:hover:fill-purple"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1792 2048"
@@ -26,6 +27,7 @@ const SocialLink = ({label, href}: SocialLinkProps) => (
       ) : null}
       {label === 'github' ? (
         <svg
+          className="transition-[background] rounded-full hover:bg-white dark:hover:bg-transparent"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1984 2048"
@@ -38,6 +40,7 @@ const SocialLink = ({label, href}: SocialLinkProps) => (
       ) : null}
       {label === 'dev' ? (
         <svg
+          className="transition-[background] rounded-sm hover:bg-white dark:hover:bg-transparent"
           fill="currentColor"
           xmlns="http://www.w3.org/2000/svg"
           viewBox="0 0 1792 2048"

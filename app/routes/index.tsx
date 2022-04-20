@@ -6,6 +6,13 @@ export const links: LinksFunction = () => [
     rel: 'preload',
     href: '/me-mobile.webp',
     as: 'image',
+    media: '(max-width: 640px)',
+  },
+  {
+    rel: 'preload',
+    href: '/me.webp',
+    as: 'image',
+    media: '(min-width: 641px)',
   },
 ]
 
