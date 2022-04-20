@@ -18,7 +18,7 @@ const Personal = () => {
   )
   return (
     <section
-      className="container mx-auto px-4 lg:px-16 my-8 lg:my-0"
+      className="container mx-auto px-4 lg:px-16 my-8 lg:my-0 text-text dark:text-black"
       id="personal"
     >
       <div className="flex flex-col gap-y-8 md:grid md:grid-cols-2 md:gap-8 items-center content-center">

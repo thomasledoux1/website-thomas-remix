@@ -28,9 +28,10 @@
   src: local(''), url('/fonts/montserrat-v23-latin-700.woff2') format('woff2');
 }
 
-.wrapper {
+html {
   --purple: #f5ebff;
-  --primary: #5851f9;
+  --darkpurple: #5851f9;
+  --primary: var(--darkpurple);
   --text: #000;
   --yellow: #f7df1e;
   --blue: #2965f1;
@@ -38,10 +39,15 @@
   --beige: #eee;
   --secondary: #f5ebff;
   --lightpurple: #f0efff;
+  --orange: #b55400;
 }
 
-.wrapper.dark {
-  --primary: #b55400;
+body {
+  @apply min-h-screen;
+}
+
+html.dark {
+  --primary: var(--orange);
   --text: var(--beige);
   --secondary: var(--darkgray);
 }
@@ -185,12 +191,8 @@ li.gatsby {
   color: #fff;
 }
 
-#wrapper {
-  @apply min-h-screen;
-}
-
 @supports (-webkit-touch-callout: none) {
-  #wrapper {
+  body {
     min-height: -webkit-fill-available;
   }
 }

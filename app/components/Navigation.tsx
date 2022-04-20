@@ -1,15 +1,12 @@
 import {Link, NavLink, useLocation} from '@remix-run/react'
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
+import {Theme, useTheme} from '../utils/themeProvider'
 
-type NavigationProps = {
-  theme: string
-}
-
-const Navigation = ({theme}: NavigationProps) => {
-  const oppositeTheme = theme === 'light' ? 'dark' : 'light'
+const Navigation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = React.useState(false)
   const location = useLocation()
+  const [, setTheme] = useTheme()
   React.useEffect(() => {
     setMobileMenuOpen(false)
   }, [location])
@@ -51,9 +48,15 @@ const Navigation = ({theme}: NavigationProps) => {
     <span className="letter inline-block top-0 relative">{letter}</span>
   )
 
+  const toggleTheme = () => {
+    setTheme(prevTheme =>
+      prevTheme === Theme.LIGHT ? Theme.DARK : Theme.LIGHT,
+    )
+  }
+
   return (
     <>
-      <nav className="fixed bg-purple dark:bg-darkgrey text-text h-16 w-full z-50">
+      <nav className="fixed bg-purple transition-colors dark:bg-darkgrey text-text h-16 w-full z-50">
         <div className="flex h-full container mx-auto justify-between items-center px-4 lg:px-16">
           <Link className="logo flex flex-row text-lg lg:text-2xl" to="/">
             <LogoLetter letter="t" />
@@ -100,49 +103,47 @@ const Navigation = ({theme}: NavigationProps) => {
               }`}
             />
           </button>
-          <form method="post" action="/">
-            <input name="theme" type="hidden" value={oppositeTheme} />
-            <input name="returnUrl" type="hidden" value={location.pathname} />
-            <button
-              aria-label="Toggle Dark Mode"
-              type="submit"
-              id="darkModeToggle"
-              className="inset-0 overflow-hidden order-2 md:order-3 absolute md:relative md:top-auto md:translate-x-0 md:translate-y-0 w-8 h-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-0"
-            >
-              <div className="relative group h-full">
-                <span className="absolute inset-0 hidden dark:inline-block">
-                  <svg
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 24 24"
-                    stroke="currentColor"
-                    className="text-gray-800 dark:text-gray-200  transition-[fill] dark:group-hover:text-yellow"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
-                    />
-                  </svg>
-                </span>
-                <span className="absolute inset-0 inline-block dark:hidden">
-                  <svg
-                    fill="currentColor"
-                    stroke="currentColor"
-                    className="text-gray-800  dark:text-gray-200 transition-[fill] group-hover:text-yellow"
-                    viewBox="0 0 24 24"
-                  >
-                    <path
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth={2}
-                      d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
-                    />
-                  </svg>
-                </span>
-              </div>
-            </button>
-          </form>
+
+          <button
+            aria-label="Toggle Dark Mode"
+            type="button"
+            id="darkModeToggle"
+            onClick={toggleTheme}
+            className="inset-0 overflow-hidden order-2 md:order-3 absolute md:relative md:top-auto md:translate-x-0 md:translate-y-0 w-8 h-8 top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 md:left-0"
+          >
+            <div className="relative group h-full">
+              <span className="absolute inset-0 hidden dark:inline-block">
+                <svg
+                  xmlns="http://www.w3.org/2000/svg"
+                  viewBox="0 0 24 24"
+                  stroke="currentColor"
+                  className="text-gray-800 dark:text-gray-200  transition-[fill] dark:group-hover:text-yellow"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth="2"
+                    d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"
+                  />
+                </svg>
+              </span>
+              <span className="absolute inset-0 inline-block dark:hidden">
+                <svg
+                  fill="currentColor"
+                  stroke="currentColor"
+                  className="text-gray-800  dark:text-gray-200 transition-[fill] group-hover:text-yellow"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={2}
+                    d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"
+                  />
+                </svg>
+              </span>
+            </div>
+          </button>
         </div>
       </nav>
     </>

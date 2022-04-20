@@ -69,10 +69,10 @@ const Blogs = () => {
                 <>
                   <div className="flex justify-between">
                     <div className="flex justify-between mb-3 items-start w-full">
-                      <h3 className="text-xl font-medium dark:text-white pr-4">
+                      <h3 className="text-xl font-medium transition-colors dark:text-white pr-4">
                         {blog.title}
                       </h3>
-                      <div className="flex flex-col md:flex-row items-center text-gray-500">
+                      <div className="flex flex-col md:flex-row items-center text-gray-500 dark:text-white">
                         <svg
                           xmlns="http://www.w3.org/2000/svg"
                           className="h-6 w-6 md:mr-2"

@@ -1,13 +1,12 @@
+/* eslint-disable no-use-before-define */
 // eslint-disable-next-line no-use-before-define
 import * as React from 'react'
 import {
-  ActionFunction,
   Links,
   LiveReload,
   LoaderFunction,
   Meta,
   MetaFunction,
-  redirect,
   Scripts,
   ScrollRestoration,
   useCatch,
@@ -21,31 +20,30 @@ import {AnimatePresence, motion} from 'framer-motion'
 import global from './styles/global.css'
 import tailwindUrl from './styles/tailwind.css'
 import Layout from './components/Layout'
-import {parseCookie} from './utils/parseCookie'
-import {theme} from './cookie'
+import {
+  NonFlashOfWrongThemeEls,
+  Theme,
+  ThemeProvider,
+  useTheme,
+} from './utils/themeProvider'
+import {getThemeSession} from './utils/theme.server'
 
 export const links: LinksFunction = () => [
   {rel: 'stylesheet', href: global},
   {rel: 'stylesheet', href: tailwindUrl},
 ]
-
-export const loader: LoaderFunction = async ({request}) => {
-  const cookie = await parseCookie(request, theme)
-  if (!cookie.theme) cookie.theme = 'light'
-  return {theme: cookie.theme}
+export type LoaderData = {
+  theme: Theme | null
 }
 
-export const action: ActionFunction = async ({request}) => {
-  const cookie = await parseCookie(request, theme)
-  const formData = await request.formData()
-  cookie.theme = formData.get('theme') || cookie.theme || 'light'
-  const returnUrl = formData.get('returnUrl') || '/'
-  const serializedCookie = await theme.serialize(cookie)
-  return redirect(returnUrl.toString(), {
-    headers: {
-      'Set-Cookie': serializedCookie,
-    },
-  })
+export const loader: LoaderFunction = async ({request}) => {
+  const themeSession = await getThemeSession(request)
+
+  const data: LoaderData = {
+    theme: themeSession.getTheme(),
+  }
+
+  return data
 }
 
 export const meta: MetaFunction = () => ({
@@ -60,40 +58,42 @@ export const meta: MetaFunction = () => ({
  * component for your app.
  */
 export default function App() {
-  const cookie = useLoaderData()
   const outlet = useOutlet()
+  const data = useLoaderData<LoaderData>()
+
   return (
-    // eslint-disable-next-line no-use-before-define
-    <Document>
-      <Scripts />
-      <link rel="preconnect" href="https://www.google-analytics.com" />
-      <script
-        async
-        src="https://www.googletagmanager.com/gtag/js?id=UA-125864873-1"
-      />
-      <script
-        dangerouslySetInnerHTML={{
-          __html: `window.dataLayer = window.dataLayer || [];
+    <ThemeProvider specifiedTheme={data.theme}>
+      <Document>
+        <Scripts />
+        <link rel="preconnect" href="https://www.google-analytics.com" />
+        <script
+          async
+          src="https://www.googletagmanager.com/gtag/js?id=UA-125864873-1"
+        />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}
   gtag('js', new Date());
 
   gtag('config', 'UA-125864873-1');`,
-        }}
-      />
-      <Layout theme={cookie.theme}>
-        <AnimatePresence exitBeforeEnter initial={false}>
-          <motion.main
-            key={useLocation().pathname}
-            initial={{x: '-10%', opacity: 0}}
-            animate={{x: '0', opacity: 1}}
-            exit={{y: '-10%', opacity: 0}}
-            transition={{duration: 0.3}}
-          >
-            {outlet}
-          </motion.main>
-        </AnimatePresence>
-      </Layout>
-    </Document>
+          }}
+        />
+        <Layout>
+          <AnimatePresence exitBeforeEnter initial={false}>
+            <motion.main
+              key={useLocation().pathname}
+              initial={{x: '-10%', opacity: 0}}
+              animate={{x: '0', opacity: 1}}
+              exit={{y: '-10%', opacity: 0}}
+              transition={{duration: 0.3}}
+            >
+              {outlet}
+            </motion.main>
+          </AnimatePresence>
+        </Layout>
+      </Document>
+    </ThemeProvider>
   )
 }
 
@@ -104,16 +104,20 @@ function Document({
   children: React.ReactNode
   title?: string
 }) {
+  const data = useLoaderData<LoaderData>()
+  const [theme] = useTheme()
+
   return (
-    <html lang="en">
+    <html lang="en" className={theme ?? ''}>
       <head>
         <meta charSet="utf-8" />
         <meta name="viewport" content="width=device-width,initial-scale=1" />
+        <NonFlashOfWrongThemeEls ssrTheme={Boolean(data.theme)} />
         {title ? <title>{title}</title> : null}
         <Meta />
         <Links />
       </head>
-      <body>
+      <body className="wrapper bg-white dark:bg-lightgrey flex flex-col">
         {children}
         {/* eslint-disable-next-line no-use-before-define */}
         <RouteChangeAnnouncement />
@@ -141,7 +145,7 @@ export function CatchBoundary() {
 
   return (
     <Document title={`${caught.status} ${caught.statusText}`}>
-      <Layout theme="light">
+      <Layout>
         <>
           <h1>
             {caught.status}: {caught.statusText}
@@ -157,7 +161,7 @@ export function ErrorBoundary({error}: {error: Error}) {
   console.error(error)
   return (
     <Document title="Error!">
-      <Layout theme="light">
+      <Layout>
         <div>
           <h1>There was an error</h1>
           <p>{error.message}</p>

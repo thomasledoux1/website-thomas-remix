@@ -6,7 +6,7 @@ type SocialLinkProps = {
 const SocialLink = ({label, href}: SocialLinkProps) => (
   <li className="w-6 h-6">
     <a
-      className="dark:text-purple"
+      className="dark:text-purple transition-colors"
       target="_blank"
       rel="noopener noreferrer"
       aria-label={label}

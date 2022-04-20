@@ -1,7 +1,7 @@
 import SocialLink from './SocialLink'
 
 const Footer = () => (
-  <footer className="bg-secondary relative">
+  <footer className="bg-secondary relative text-text">
     <div className="p-5 flex justify-center items-center">
       <ul className="flex gap-6">
         <SocialLink

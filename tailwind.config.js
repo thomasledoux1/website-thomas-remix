@@ -29,11 +29,11 @@ module.exports = {
       keyframes: {
         'title-part1': {
           '0%, 100%': {color: 'var(--text)'},
-          '50%': {color: 'var(--primary)'},
+          '50%': {color: 'var(--darkpurple)'},
         },
         'title-part2': {
           '0%, 100%': {color: 'var(--text)'},
-          '50%': {color: 'var(--yellow)'},
+          '50%': {color: 'var(--orange)'},
         },
         'title-part3': {
           '0%, 100%': {color: 'var(--text)'},
