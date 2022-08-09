@@ -1,4 +1,4 @@
-import {ActionFunction, json} from 'remix/server'
+import {ActionFunction, json} from '@remix-run/node'
 import {getThemeSession} from '../../utils/theme.server'
 import {isTheme} from '../../utils/themeProvider'
 

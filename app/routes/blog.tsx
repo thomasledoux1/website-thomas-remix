@@ -1,4 +1,5 @@
-import {MetaFunction, useLoaderData} from 'remix'
+import {MetaFunction} from '@remix-run/node'
+import {useLoaderData} from '@remix-run/react'
 import {v4 as uuidv4} from 'uuid'
 
 type Blog = {

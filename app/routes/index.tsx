@@ -1,5 +1,5 @@
-import {Link, MetaFunction} from 'remix'
-import type {LinksFunction} from 'remix'
+import type {LinksFunction, MetaFunction} from '@remix-run/node'
+import {Link} from '@remix-run/react'
 
 export const links: LinksFunction = () => [
   {

@@ -1,5 +1,5 @@
-import {MetaFunction, Outlet, redirect} from 'remix'
-import type {ActionFunction} from 'remix'
+import {MetaFunction, ActionFunction, redirect} from '@remix-run/node'
+import {Outlet} from '@remix-run/react'
 
 export const meta: MetaFunction = () => ({
   title: 'Thomas Ledoux | Contact',

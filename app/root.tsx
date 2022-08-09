@@ -1,22 +1,20 @@
 /* eslint-disable no-use-before-define */
 // eslint-disable-next-line no-use-before-define
 import * as React from 'react'
-import {
-  Links,
-  LiveReload,
-  LoaderFunction,
-  Meta,
-  MetaFunction,
-  Scripts,
-  ScrollRestoration,
-  useCatch,
-  useLoaderData,
-  useLocation,
-  useOutlet,
-} from 'remix'
-import type {LinksFunction} from 'remix'
 import {AnimatePresence, motion} from 'framer-motion'
 
+import {
+  useOutlet,
+  useLoaderData,
+  Scripts,
+  useLocation,
+  Meta,
+  Links,
+  ScrollRestoration,
+  LiveReload,
+  useCatch,
+} from '@remix-run/react'
+import type {LinksFunction, LoaderFunction, MetaFunction} from '@remix-run/node'
 import global from './styles/global.css'
 import tailwindUrl from './styles/tailwind.css'
 import Layout from './components/Layout'
@@ -71,6 +69,7 @@ export default function App() {
           src="https://www.googletagmanager.com/gtag/js?id=UA-125864873-1"
         />
         <script
+          // eslint-disable-next-line react/no-danger
           dangerouslySetInnerHTML={{
             __html: `window.dataLayer = window.dataLayer || [];
   function gtag(){dataLayer.push(arguments);}

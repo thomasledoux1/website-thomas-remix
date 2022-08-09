@@ -1,4 +1,4 @@
-import {useActionData} from 'remix'
+import {useActionData} from '@remix-run/react'
 
 const Contact = () => {
   const status = useActionData()

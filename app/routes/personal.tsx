@@ -1,4 +1,6 @@
-import {Link, MetaFunction} from 'remix'
+// eslint-disable-next-line no-use-before-define
+import type {MetaFunction} from '@remix-run/node'
+import {Link} from '@remix-run/react'
 // eslint-disable-next-line no-use-before-define
 import React from 'react'
 
